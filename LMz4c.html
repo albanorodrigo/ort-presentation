@@ -119,8 +119,6 @@
 				</ul>
 			</section>
 
-
-
 			<!-- OBJETIVOS DEL CURSO -->
 			<section>
 				<section>
@@ -406,6 +404,377 @@
 
 			</section>
 			<!-- FIN PENSAMIENTO COMPUTACIONAL -->
+
+			<!-- Practico 3 -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Práctico 3</h2>
+					<a target="_blank" href="https://pseint.sourceforge.net/"><img data-src="img/PSeInt_logo.png"></a>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Pedir la base y altura de un triángulo. Mostrar su área
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						Algoritmo Ejercicio
+							Mostrar "Calculemos el area de un triangulo =)"
+							Mostrar "Ingrese la Base"
+							Leer base
+							Mostrar "Ingrese la Altura"
+							Leer altura
+							area = (base * altura) / 2
+							Mostrar "La altura del triangulo es: " + ConvertirATexto(area)
+						FinAlgoritmo
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Ingresar 3 valores enteros y mostrar el mayor de ellos. Ej: si se lee 1, -3, 5, mostrar: 5
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						Algoritmo Ejercicio
+							Mostrar "Ingresar Valor"
+							leer a
+							Mostrar "Ingresar Valor"
+							leer b
+							Mostrar "Ingresar Valor"
+							leer c
+							mayor = a
+							
+							si(a>b)
+								mayor = a
+							SiNo
+								mayor = b
+							FinSi
+							
+							si(c>mayor)
+								mayor = c
+							FinSi
+							mostrar "El mayor numero ingresado es: " + mayor
+						FinAlgoritmo
+
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Recibir valores y sumarlos tomando en cuenta las siguientes convenciones praticulares:
+						<ul>
+							<li>Si se recibe un 0 se termina la suma y se muestra el total</li>
+							<li>Si se recibe un 2 se suma y luego se duplica el total acumulado</li>
+							<li>Si se recibe un número negativo se ignora</li>
+						</ul>	
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						Algoritmo Ejercicio
+							suma = 0
+							dato = 99
+							Mientras dato <> 0 Hacer
+								Mostrar "Ingrese valor"
+								Leer dato
+								Si( dato > 0)
+									// El valor ingresado es positivo. Procedemos con la lógica
+									suma = dato + suma
+									Si(dato = 2)
+										suma = suma * 2
+									FinSi
+								FinSi
+							Fin Mientras
+							Mostrar "La sumatoria es de: " + ConvertirATexto(suma)
+						FinAlgoritmo
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Leer 5 valores y mostrar los siguientes resultados:
+						<ul>
+							<li>La suma de los 2 primeros, la multiplicación del 3º y 4º; el promedio de los 5 y</li>
+							<li>la suma de todos los resultados anteriores</li>
+						</ul>	
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						Algoritmo Ejercicio
+							Mostrar  "Ingrese valor 1"
+							Leer primero
+							Mostrar  "Ingrese valor 2"
+							Leer segundo
+							Mostrar  "Ingrese valor 3"
+							Leer tercero
+							Mostrar  "Ingrese valor 4"
+							Leer cuarto
+							Mostrar  "Ingrese valor 5"
+							Leer quinto
+							
+							Mostrar "Suma de los 2 primeros es: " + ConvertirATexto((primero + segundo))
+							Mostrar "Multiplicación de 3º y 4º: " + ConvertirATexto((tercero * cuarto))
+							promedio = (primero + segundo + tercero + cuarto + quinto) / 5 
+							Mostrar "Promedio: " + ConvertirATexto( promedio )
+							Mostrar "Sumatoria de los resultados anteriores es: " + ConvertirATexto(((primero + segundo) + (tercero * cuarto) + promedio))
+						FinAlgoritmo
+
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Recibir 6 valores y mostrar su suma en valor absoluto. Ej. si se lee -1, 2,-3, 4,-5,6, mostrar 21
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Pedir el ingreso de un número n. Mostrar la suma de todos los impares entre 1 y n.
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>Pedir el ingreso de un número y mostrar sus dígitos en forma separada.</p><p>Asumir que el número ingresado es positivo</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+						Pedir el ingreso de 10 números. Mostrar el promedio de los que sean menores de 70 y
+						mayores de 50.
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>
+					Dada una serie de números (terminada por el ingreso del número 0) indicar los dos números mayores de la misma. </p>
+					<p>Se asume que hay dos o más datos y no son negativos.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>Pedir el ingreso de un número n.</p> 
+					<p>Luego pedir el ingreso de n números, e imprimir el mayor de ellos y la suma de todos los números desde el principio hasta ese máximo
+inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>Ingresar la hora y minutos de entrada de un funcionario a la empresa, también la hora y minutos de salida.</p>
+					<p>Indicar la cantidad de horas y minutos que trabajó.</p>
+					<p>Se asume que el funcionario entra y sale durante el mismo día.</p>
+				</section>
+				
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en PSeInt</h4>
+					<p>En una maratón se controlan los tiempos que demoran cada uno de los corredores (en minutos).</p><p>Se desea saber cuál fue el peor y mejor tiempo realizado.</p><p>Al iniciar se indica la cantidad de corredores. </p><p>Se asume que la maratón dura como máximo 5 horas y que participan 3 o más corredores.
+					</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Ejercicio Adicional - PSeInt</h4>
+					<p>
+						Leer n y mostrar los primeros números de la serie de Perrin hasta dicho n. Se definen:
+					<ul>
+						<li>P(0) = 3</li>
+						<li>P(1) = 0 </li>
+						<li>P(2) = 2</li>
+						<li>P(n) = P(n − 2) + P(n − 3) si n > 2.</li>
+					</ul>
+					<br>
+					<p>Ejemplo: si se ingresa n=6, se muestra:</p>
+						<p>
+						<ul><li>3   0   2   3   2   5  5</li></ul>
+						</p>
+						si se ingresa 10 se muestra:
+						<p>
+						<ul><li>3  0   2  3   2  5   5   7  10  12   17</li></ul>
+						</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h4>Posible Solución</h4>
+					<pre><code data-trim data-noescape>
+						Proceso sin_titulo
+							mostrar "ingrese n"
+							leer n
+							p0=3
+							p1=0
+							p2 =2
+							si (n=0)
+								mostrar p0
+							FinSi
+							si (n=1)
+								mostrar p0
+								mostrar p1
+								
+							FinSi
+							si (n>=2)
+								mostrar p0
+								mostrar p1
+								mostrar p2
+							FinSi
+							para i =3 hasta n con paso 1 Hacer
+								nuevo = p0 + p1
+								p0=p1
+								p1 = p2
+								p2 = nuevo
+								mostrar nuevo
+							FinPara
+						FinProceso
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Ejercicio Adivina el Número - PSeInt</h4>
+					<small class="fragment">
+						El sistema genera un número al azar entre 0 y 9999 y solicita valores al usuario. El usuario ingresa el número y el sistema debe indicar si acertó o no. Cuando acierta termina el juego
+					</small>
+					<p class="fragment">Versión 2</p>
+					<small class="fragment">Cuando acierta el número, indicar cuántos números fueron ingresados.</small>
+					<p class="fragment">Versión 3</p>
+					<small class="fragment">Luego de cada ingreso de un número por parte parte del usuario, si no acertó, el sistema le da una sugerencia sobre ese número: “es muy grande” o “es muy chico”. Por ejemplo, si el sistema generó el número 1234 y el usuario ingresó 1500, el sistema debe decir “es muy grande”.</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Ejercicio Adivina el Número - PSeInt</h4>
+					<p class="fragment">Versión 4</p>
+					<small class="fragment">
+						Luego de mostrada la sugerencia, se le debe preguntar al usuario si desea rendirse, solicitar la pista o continuar ingresando. Si decide rendirse, se le debe mostrar por pantalla cual era el número que debía adivinar, y la cantidad de intentos que realizó. Si el usuario solicita la pista, el sistema debe mostrarle con que cifra termina el número que debe adivinar (investigar módulo 10). 
+					</small>
+					<p class="fragment">Versión 5</p>
+					<small class="fragment">La pista se puede solicitar una única vez. Luego de utilizada, informar que ya se usó.</small>
+					<p class="fragment">Versión 6</p>
+					<small class="fragment">Se comienza la partida con 100 puntos. El juego termina cuando el usuario adivina el número o cuando su cantidad de puntos llega a 0. Por cada intento se le resta un punto, y si decide solicitar la pista, se le restan 50 puntos.</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h4>Posible Solución - Adivina el Número</h4>
+					<pre><code data-trim data-noescape>
+						Algoritmo AdivinaElNumero
+	
+							numeroAdivinar =  Azar(1000)+1
+							
+							acerto = falso
+							usoPista = falso
+							rendirse = falso
+							puntaje = 100
+							intentos = 0
+							Mostrar "Bienvenidos al juego Adivina el Número"
+							Repetir
+								Mostrar "Ingresar un número: "
+								Leer dato
+								intentos = intentos + 1
+								Si dato == numeroAdivinar
+									acerto = verdadero
+								SiNo
+									// Comenzamos con la lógica
+									Si dato > numeroAdivinar
+										Mostrar "El número que se ingresó es muy grande"
+									SiNo
+										Mostrar "El número que se ingresó es muy chico"
+									FinSi
+									opc = 0
+									Mostrar "Opciones"
+									Mostrar "1. Rendirse"
+									Mostrar "2. Reintentar"
+									puntaje = puntaje - 1
+									Si No(usoPista)
+										Mostrar "3. Usar pista"
+									FinSi
+									Repetir
+										Mostrar "Ingrese opción: "
+										Leer opc
+									Hasta Que opc == 1 o opc == 2 o (opc == 3 y No(UsoPista))
+									Si opc == 1
+										rendirse = verdadero
+									SiNo 
+										Si opc == 3 y No(UsoPista)
+											UsoPista = verdadero
+											Mostrar "La última cifra del número es: " + ConvertirATexto(numeroAdivinar mod 10)
+											puntaje = puntaje - 50
+										FinSi
+									FinSi
+								FinSi
+							Hasta Que acerto o puntaje <= 0 o rendirse
+							
+							Si acerto
+								Mostrar "Acertaste :) El número es " , numeroAdivinar , " y el puntaje es ",puntaje
+							FinSi
+							Si rendirse
+								Mostrar "Rendición :( El número era " , numeroAdivinar
+							FinSi
+							Si No(acerto) y puntaje <= 0
+								Mostrar "Perdió :( El número era " , numeroAdivinar
+							FinSi
+							Mostrar "Se realizaron ", intentos " intentos "
+						FinAlgoritmo
+
+					</code></pre>
+				</section>
+			</section>
+			<!-- FIN Practico 3 -->
 
 
 			<section>
