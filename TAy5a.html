@@ -109,13 +109,17 @@
 
 			</section>
 
+			<!-- Indice -->
 			<section>
 				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 					style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 				<h3>Desarrollo del Curso</h3>
 				<ul>
-					<li><a href="#/4">Objetivos del Curso</a></li>
-					<li><a href="#/5">Pensamiento Computacional</a></li>
+					<li><a href="#/3">Objetivos del Curso</a></li>
+					<li><a href="#/4">Práctico - Pensamiento Computacional</a></li>
+					<li><a href="#/5">Práctico - PSeInt</a></li>
+					<li><a href="#/6">Práctico - Consola</a></li>
+					<li><a href="#/7">Práctico - Snippets</a></li>
 				</ul>
 			</section>
 
@@ -844,13 +848,13 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 			</section>
 			<!-- FIN DEL PRACTICO 4 -->
 
-			<!-- PRACTICO 5 - JS -->
+			<!-- PRACTICO 5 - Snippets -->
 			<section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					
-					<h2>Práctico 5 - JS</h2>
+					<h2>Práctico 5 - Snippets</h2>
 					<a target="_blank" href="https://developer.chrome.com/docs/devtools/javascript/snippets/"><img data-src="img/JavaScript_logo.png" style="width: 200px; height: 200px;"></a>
 					<p>
 						<small>Chrome => DevTools (F12) => Source => Snippets</small>
@@ -861,19 +865,168 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					
-					<h4>Codificar en Consola</h4>
+					<h4>Codificar en Snippet</h4>
 					<p>Pedir la base y altura de un triángulo. Mostrar su área.</p>
 					<p>Ej. si se lee 6 y 2, muestra 6.</p>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
-					<pre><code data-trim data-noescape>
-						
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						console.log('Calculemos el area de un triangulo =)');
+						var base = parseInt(prompt("Por favor, ingrese la base"));
+						var altura = parseInt(prompt("Por favor, ingrese la altura"));
+						var area = ((base * altura) / 2)
+						console.log('El area del triangulo es: ' + area);
+						alert("El area del triangulo es: " + area);
 					</code></pre>
 				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en Snippet</h4>
+					<p>Ingresar 3 valores enteros y mostrar el menor de ellos.</p>
+					<p>Ej. si se lee: 1, -3, 5, mostrar: -3</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+
+						alert('Calculemos el menor de 3 numeros enteros');
+						var val1 = parseInt(prompt("Por favor, ingrese el primero"));
+						var val2 = parseInt(prompt("Por favor, ingrese el segundo"));
+						var val3 = parseInt(prompt("Por favor, ingrese el tercero"));
+						var menor = val1;
+
+						if(val2 < val1){
+							menor = val2;
+						}
+						if(val3 < menor){
+							menor = val3;
+						}
+
+						alert('El menor es: ' + menor);
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Codificar en Snippet</h4>
+					<p>Ingresar 3 datos y mostrar la suma de sus valores absolutos.</p>
+					<p>Ej. si se lee -1, 5, -30 => mostrar: 36</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						alert("Ingresar 3 datos y mostrar la suma de sus valores absolutos");
+						var val1 = parseInt(prompt("Por favor, ingrese el primero"));
+						var val2 = parseInt(prompt("Por favor, ingrese el segundo"));
+						var val3 = parseInt(prompt("Por favor, ingrese el tercero"));
+
+						var suma = Math.abs(val1) + Math.abs(val2) + Math.abs(val3);
+
+						alert("La sumatoria de los valores absolutos es: " + suma);
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Pedir el ingreso de un número n. Mostrar la suma de todos los impares que sean
+						múltiplos de 3 entre 1 y n.</p>
+					<p>Ej. si se ingresa 16 => muestra 27</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						alert("Calculemos la suma de los impares y multiplos de 3, comprendidos entre 1 a 'n'");
+						var dato = parseInt(prompt("Por favor, ingrese 'n'"));
+
+						var suma = 0;
+
+						// Iteramos
+						for(i = 1; i <= dato; i++){
+							// Verificamos si es IMPAR y Multiplo de 3
+							if( !(i % 2) == 0 && (i % 3) == 0 ){
+								suma = suma + i;
+							}
+						}
+
+						alert("La sumatoria es de: " + suma);
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Ingresar 10 números. Mostrar el promedio.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Ingresar 10 números. Se asumen positivos. Indicar la diferencia entre el mayor y el menor</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Se ingresa una cantidad de segundos (menor a un millón) y debe mostrarse a cuántos
+						días, horas, minutos y segundos corresponde.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Se ingresan los datos de dos personas que se sabe nacieron el mismo año. De cada una se indica nombre, dia y mes.</p> 
+					<p>Debe informarse quién de ellos es el mayor, o la indicación de que ambos nacieron en la misma fecha.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Se ingresan 3 números y debe retornarse un texto con el signo del resultado del producto de los mismos</p> 
+					<p>Ej: 1, -4, 7 muestra "el signo es -"</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Codificar en Snippet</h4>
+					<p>Escribir un programa que reciba un número de 3 dígitos e indique si es un número de Armstrong</p>
+					<p>Nota: un número de Armstrong es aquel en el cual la suma de cada uno de sus dígitos elevado al número total de dígitos es igual al a sí mismo.</p>
+					<p>Ej: Si evaluamos 153 ==> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> = 153</p>
+					<p>Ej: Si evaluamos 371 ==> 3<sup>3</sup> + 7<sup>3</sup> + 1<sup>3</sup> = 371</p>
+				</section>
+				<!-- <section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						alert("Verifiquemos si es un numero de Armstrong");
+						var dato = parseInt(prompt("Por favor, ingrese un número de 3 dígitos"));
+						var suma = 0;
+
+						var datoPartido = dato.toString().split('');
+						var cantDigitos = datoPartido.length;
+
+						for(i = 0; i < cantDigitos; i++ ){
+							suma = suma + (Math.pow( datoPartido[i] , cantDigitos ));
+						}
+
+						var mensaje = "NO es un numero Armstrong";
+						if( dato === suma ){
+							mensaje = "ES un numero Armstrong";
+						}
+
+						alert("Valor Sumatoria: " + suma + " | " + mensaje);
+					</code></pre>
+				</section> -->
 			</section>
-			<!-- FIN DEL PRACTICO 5 - JS -->
+			<!-- FIN DEL PRACTICO 5 - Snippets -->
 
 
 			<section>
