@@ -982,6 +982,29 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+
+							const segundos = parseInt(prompt("Por favor, ingrese cantidad de segundos"));
+							const unDiaEnSegundos = 86400;
+							const unaHoraEnSegundos = 3600;
+							const unMinutoEnSegundos = 60;
+						  
+							const dias = Math.floor(segundos / unDiaEnSegundos);
+							segundos %= unDiaEnSegundos;
+						  
+							const horas = Math.floor(segundos / unaHoraEnSegundos);
+							segundos %= unaHoraEnSegundos;
+						  
+							const minutos = Math.floor(segundos / unMinutoEnSegundos);
+							segundos %= unMinutoEnSegundos;
+							
+						  
+					</code></pre>
+
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<h4>Codificar en Snippet</h4>
 					<p>Se ingresan los datos de dos personas que se sabe nacieron el mismo año. De cada una se indica nombre, dia y mes.</p> 
 					<p>Debe informarse quién de ellos es el mayor, o la indicación de que ambos nacieron en la misma fecha.</p>
@@ -1002,7 +1025,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					<p>Ej: Si evaluamos 153 ==> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> = 153</p>
 					<p>Ej: Si evaluamos 371 ==> 3<sup>3</sup> + 7<sup>3</sup> + 1<sup>3</sup> = 371</p>
 				</section>
-				<!-- <section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<pre><code class="hljs javascript" data-trim data-noescape>
@@ -1024,7 +1047,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 
 						alert("Valor Sumatoria: " + suma + " | " + mensaje);
 					</code></pre>
-				</section> -->
+				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
@@ -1042,7 +1065,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					</ul>
 					</small>
 				</section>
-				<!-- <section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<pre><code class="hljs javascript" data-trim data-noescape>
@@ -1146,7 +1169,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 						//MIENTRAS NO SE PULSE CANCELAR VUELVE ARRIBA
 						while (numero != undefined);
 					</code></pre>
-				</section> -->
+				</section>
 			</section>
 			<!-- FIN DEL PRACTICO 5 - Snippets -->
 
