@@ -120,6 +120,7 @@
 					<li><a href="#/5">Práctico - PSeInt</a></li>
 					<li><a href="#/6">Práctico - Consola</a></li>
 					<li><a href="#/7">Práctico - Snippets</a></li>
+					<li><a href="#/8">Práctico - Funciones y String Basicos</a></li>
 				</ul>
 			</section>
 
@@ -1173,6 +1174,154 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 			</section>
 			<!-- FIN DEL PRACTICO 5 - Snippets -->
 
+			<!-- PRACTICO 6 - Funciones y String Basicos -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Práctico 6 - Funciones y Strings (básico)</h2>
+					<a target="_blank" href="https://developer.chrome.com/docs/devtools/javascript/snippets/"><img data-src="img/JavaScript_logo.png" style="width: 200px; height: 200px;"></a>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar una función que convierta la edad de un perro en “años humanos”, multiplicándose por 7.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la función Buzz, que recibe un número natural n y retorna la palabra "buzz", si el número es múltiplo de 3 o de 5; en otro caso retorna el mismo número.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la función convertirACelsius(grados), que recibe una cantidad de grados en Fahrenheit y los convierte a Celsius.</p>
+					<p>Nota: fórmula: ((grados-32)*5/9 )</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la siguiente función en JS: function invertir(palabra).</p>
+					<p>Recibe una palabra y la retorna invertida. Ej: recibe: “hola mundo”, retorna : “odnum aloh”</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						function invertir(palabra){
+							let nueva="";
+							for (let i = palabra.length -1; i >=0; i--){
+								nueva = nueva + palabra[i];
+							}
+							return nueva;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la siguiente función en JS: function vecesLetra(frase, letra)</p>
+					<p>Recibe una frase y una letra, retorna cuántas veces aparece esa letra en la frase recibida. Ejemplo: recibe: “hoy es viernes” y “a”, retorna 0.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						function vecesLetra(frase, letra){
+							let veces=0;
+							let fraseM = frase.toUpperCase();
+							let letraM = letra.toUpperCase();
+							for (let i = 0; i < fraseM.length; i++){
+								if ( fraseM[i] === letraM ){
+									veces++;
+								}
+							}
+							return veces;
+						}
+						
+						alert(vecesLetra("casa","a"));
+
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la siguiente función en JS: function cantidadPalabras(frase)</p>
+					<p>Recibe una frase, retorna la cantidad de palabras que contiene. Una palabra se considera separada de otra por un espacio en blanco exclusivamente.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						function palabras(frase){
+							return frase.split(" ").length;
+						}
+					</code></pre>
+				</section>
+			
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la siguiente función en JS: function empiezaYTermina(texto)</p>
+					<p>Recibe un texto y retorna si empieza y termina con la misma letra.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						function empiezaTermina(frase){
+							let fraseM = frase.toUpperCase();
+							return fraseM.charAt(0)==fraseM.charAt(fraseM.length-1);
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<p>Implementar la siguiente función en JS: function esPalindromo(frase)</p>
+					<p>Recibe una frase (se asume sin espacios en blanco) y retorna true si es palíndroma, esto es que se lee igual de izquierda a derecha y de derecha a izquierda. Ejemplo: ANILINA.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code class="hljs javascript" data-trim data-noescape>
+						function palindroma(frase){
+							let fraseM = frase.toUpperCase();
+							return fraseM === invertir(fraseM); //función realizada en ejercicio 5
+						
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h4>Ejercicio Adicional</h4>
+					<p>Indicar si un string es balanceado, para ello para toda A hay una Z mas adelante.</p>
+					<p>Ej. AACZD es balanceado, AZA no lo es. Una misma Z puede balancear varias A</p>
+				</section>
+		</section>
+			<!-- FIN DEL PRACTICO 6 -->
 
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
