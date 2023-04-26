@@ -1328,8 +1328,165 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					<p>Indicar si un string es balanceado, para ello para toda A hay una Z mas adelante.</p>
 					<p>Ej. AACZD es balanceado, AZA no lo es. Una misma Z puede balancear varias A</p>
 				</section>
-		</section>
+			</section>
 			<!-- FIN DEL PRACTICO 6 -->
+
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Ejercicios del Parcial 1</h2>
+					<img data-src="img/test.png" style="width: 200px; height: 200px;">
+				</section>
+				<section>
+					
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Ejercicio 1</h4>
+					<pre><code data-trim data-noescape>
+						var cantPasajeros = parseInt(prompt("Por favor, ingrese la cantidad de pasajeros"));
+						var cantVentanilla = 0;
+						var cantPasillo = 0;
+						var cantCentral = 0;
+
+						var comidaG = 0;
+						var comidaS = 0;
+
+						for (let i = 1; i <= cantPasajeros; i++) {
+							var ubicacion = prompt("Por favor, ingrese la ubicación deseada ('V', 'P' o 'C') para el pasajero " + i);
+							switch(ubicacion){
+								case 'V':
+									cantVentanilla++;
+								break;
+								case 'P':
+									cantPasillo++;
+								break;
+								case 'C':
+									cantCentral++;
+								break;
+							}
+							var comida = prompt("Por favor, ingrese la comida deseada ('G' o 'S') para el pasajero " + i);
+							switch(comida){
+								case 'G':
+									comidaG++;
+								break;
+								case 'S':
+									comidaS++;
+								break;
+								default:
+									comidaG++;
+								break;
+							}
+						}
+
+						var mensaje = 'No hay mayoría de asientos en ventanilla';
+
+						if(cantVentanilla > (cantCentral + cantPasillo)){
+							mensaje = 'Hay mayoría de asientos en ventanilla';
+						}
+						console.log(mensaje);
+						var porcentajeVegetariana = ((comidaG * 100) / cantPasajeros);
+						console.log('El porcentaje de comida vegetariana es del ' + porcentajeVegetariana + '%');	
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+						<h4>Ejercicio 3</h4>
+						<pre><code data-trim data-noescape>
+							function verificar(minimo, maximo, letra, frase){
+
+								var cantOcurrencia = 0;
+								frase = frase.toUpperCase()
+								letra = letra.toUpperCase();
+								for (let i = 0; i < frase.length; i++) {
+
+									if(frase[i] === letra){
+										cantOcurrencia++;
+									}
+								}
+								console.log(cantOcurrencia);
+								return (minimo <= cantOcurrencia && cantOcurrencia <= maximo)? true: false;
+							}
+
+							verificar(2,5,'b','buenos dias en Buenos Aires');
+						</code></pre>
+				</section>
+			</section>
+
+			<!-- PRACTICO 7 - Funciones y String Avanzados -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Práctico 7 - Funciones y Strings (avanzados)</h2>
+					<a target="_blank" href="https://developer.chrome.com/docs/devtools/javascript/snippets/"><img data-src="img/JavaScript_logo.png" style="width: 200px; height: 200px;"></a>
+				</section>
+				
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Hacer una función que recibe n y retorna la suma de todos los números entre 1 y n.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Hacer una función que muestre las tablas de multiplicar del 1 al 10.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar una función que dados dos parámetros numéricos, retorne verdadero si alguno de los números es 50 o si la suma de ellos lo es..</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar una función que dado 3 parámetros numéricos, retorne verdadero si el último dígito de cada uno de los números ingresados son iguales.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function primerNoRepetido(frase)</p>
+					<p>Recibe una frase y retorna el primer carácter que no tiene repetidos. Ejemplo: recibe: “abacddbec” , retorna “e”. Si no hay ninguno, retorna “NINGUNO”.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function abreviar(frase)</p>
+					<p>Recibe una frase y la retorna abreviada (si es de largo mayor a 5). Ejemplo: recibe “Hoy es lunes”, retorna: “Hoy e…”</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function ocultoMail(email)</p>
+					<p>Recibe un email válido y lo oculta, mantiene los primeros 5 caracteres y luego “...”. Si tiene menos de 5, lo deja igual.</p>
+					<p>Ejemplo: recibe “anamaria@gmail.com”, retorna “anama…@gmail.com”</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function invertirCase(frase)</p>
+					<p>Recibe una frase y la retorna cambiando mayúsculas por minúsculas y viceversa. Ej: recibe “Hola”, retorna “hOLA”</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function humanizar(numero)</p>
+					<small>Recibe un número y lo retorna en formato “humanizado”. Ej: recibe 1, retorna: 1ero recibe 2, retorna 2do. Recibe 3, retorna 3ero. Para todos los demás, retorna el número con o: 123, retorna 123o.</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Implementar la siguiente función en JS: function cambioLetras(palabra)</p>
+					<small>Recibe una palabra y retorna un string en el cual cada caracter del string original fue reemplazado por el siguiente caracter del alfabeto. Ej: “java” retornaría “kbwb”</small>
+				</section>
+
+			</section>
+			<!-- FIN -->
+
+
 
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
