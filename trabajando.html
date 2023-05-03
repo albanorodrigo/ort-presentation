@@ -123,6 +123,7 @@
 					<li><a href="#/8">Práctico - Funciones y String Basicos</a></li>
 					<li><a href="#/9">Ejercicios Parcial 1</a></li>
 					<li><a href="#/10">Práctico - Funciones y String Avanzados</a></li>
+					<li><a href="#/11">Práctico - Arrays</a></li>
 				</ul>
 			</section>
 
@@ -1488,7 +1489,167 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 			</section>
 			<!-- FIN -->
 
+			<!-- PRCTICO 8 - ARRAYS -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Práctico 8 - Arrays</h2>
+					<a target="_blank" href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array"><img data-src="img/array.png" style="width: 100%; height: 100%;"></a>
+				</section>
+				
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Dado un array y un valor, implementar una función que retorne el número más cercano al valor dado. </p>
+					<p>El más cercano puede ser un valor superior o inferior. Si hubiera más de un posible resultado, retornar cualquiera de ellos.</p>
+					<small>Ejemplo:  datos: 10 18  23  4  -5  50 , valor: 19, el más cercano es 18</small>
+				</section>
+				<section>
+					<pre><code data-trim data-noescape>
+						function masCercano(datos, valor){
+							let min = Math.abs(datos[0]-valor);
+							let posMin = 0;
+						
+							for (let i = 1; i < datos.length; i++){
+								let dif = Math.abs(datos[i]-valor);
+								if (dif < min){
+									min = dif;
+									posMin= i;
+								}
+						
+							}
+							return datos[posMin];
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Escribir un  programa que muestre el día actual y la hora en el siguiente formato:</p>
+					<p>Día Actual: Domingo Hora: 10:45</p>
+					<p>Nota: investigar Date, getDay(), getHours(), getMinutes()</p>
+				</section>
+				<section>
+					<pre><code data-trim data-noescape>
+						function armarFecha(){
 
+							let dias=["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+							let hoy = new Date();
+							let min = hoy.getMinutes();
+							
+							if(min < 10){
+							min = '0' + min;
+							}
+							
+							let ret = "Dia actual "+dias[hoy.getDay()]+" Hora "+hoy.getHours() 
+										   +":"+ min;
+						
+							return ret;
+						
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Escribir un función que reciba un array cargado con números y retorne verdadero si dichos números ya están ordenados en forma estrictamente ascendente.</p>
+				</section>
+
+				<section>
+					<pre><code data-trim data-noescape>
+						function estanCreciente(datos){
+							let estan = true;
+							let pos = 1;
+							while (pos < datos.length && estan){
+								if (datos[pos]<= datos[pos-1]){
+									estan = false;
+								}
+								pos++;
+							}
+							return estan;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Se tiene una caja fuerte rodeada de 100 sensores de alarma. Cada sensor puede estar prendido o no. Implementar una función que reciba el array con la información de los sensores y retorne la cantidad de sensores que cumplen que él y sus dos vecinos están prendidos.</p>
+					<small>Ejemplo con 10 sensores: [true, true, false, true, true, true, true, true, false, true], retorna 4</small>
+				</section>
+
+				<section>
+					<pre><code data-trim data-noescape>
+						function alarmas(datos){
+							let cant = 0;
+							for (let i=0; i < datos.length-2; i++){
+								if (datos[i]&& datos[i+1]&&datos[i+2]){
+									cant++;
+								}
+							}
+							if (datos[0]&& datos[1]&&datos[datos.length-1]){
+								cant++;
+							}
+						
+							if (datos[0]&& datos[datos.length-2]&&datos[datos.length-1]){
+								cant++;
+							}
+							
+							 return cant; 
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Para poner moquette en una habitación rectangular se pueden combinar distintos recortes. Se tienen varios trozos rectangulares. De cada uno se sabe largo y ancho. Esa información está en un array.</p>
+					<p>Ej. 2 4 1 3 5 6 son 3 trozos (de 2*4, 1*3 y 5*6, totalizando 41 m2).</p>
+					<p>Implementar una función que reciba el array y el tamaño de la habitación y retorne si la cubre o no.</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Se tiene información de un censo. Cada familia encuestada tiene entre 0 y 12 hijos. Implementar una función que recibe un array donde cada posición contiene la cantidad de hijos de una familia y retorne un array donde cada posición es la cantidad total de familias con 12, con 11, ... , con 0 hijos</p>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>Se tiene la información de temperaturas de diversos puntos de control meteorológico del país. Esa información está en un array. Por cada medida, se indica punto de control (número entre 1 y 50) y temperatura observada.</small>
+					<small>Ej.: datos: [1, 20, 4, 12, 1, 22, 3, 18, 4,16, 5,17, 8, 21,1, 21, 3, 6]</small>
+					<small>Corresponde a: punto de control 1, temperatura 20; punto 4, temperatura 12; punto 1, temperatura 22, etc.</small>
+					<small>mplementar una función que reciba un array cargado de esta manera y un valor, y retorne un array con los puntos de control donde el respectivo promedio de temperatura sea menor que el valor dado.</small>
+					<small>Para el ejemplo, si se indica valor 16, debe retornarse (3 4)</small>
+					<small>Nota: solamente considerar aquellos puntos en los que se registraron datos.</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Dado un array cargado con números, indicar cuál es el número que aparece más veces y su cantidad de ocurrencias. Si hubiera varios, cualquiera de ellos.</p>
+					<small>Ej: [1,5,1,5,7,8,1] retorna “el número 1 con 3 ocurrencias”</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Dado un array de ordenado de números, implementar una función que retorne un nuevo array sin los elementos que estén duplicados en el array original.</p>
+					<small>Ej: [1,1,56,67,67,101,156] retorna [1, 56, 67, 101, 156]</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Dado un array cargado con números y un valor, indicar en qué posiciones (índices) se encuentran dos elementos que sumados tienen como resultado el valor indicado. En caso de haber más de un par, mostrar cualquiera de ellos. En caso de que no exista ningún par posible indicarlo.</p>
+					<small>Ej: [23, 4, 56, 67, 8, 55] y valor: 64 mostrar “2 y 4”</small>
+				</section>
+				
+			</section>
+			<!-- FIN -->
 
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
