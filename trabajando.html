@@ -124,6 +124,7 @@
 					<li><a href="#/9">Ejercicios Parcial 1</a></li>
 					<li><a href="#/10">Práctico - Funciones y String Avanzados</a></li>
 					<li><a href="#/11">Práctico - Arrays</a></li>
+					<li><a href="#/12">Práctico - HTML y JS</a></li>
 				</ul>
 			</section>
 
@@ -1651,6 +1652,100 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 			</section>
 			<!-- FIN -->
 
+			<!-- PRCTICO 10 - HTML y JS -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Práctico 10 - HTML y JS</h2>
+					<a target="_blank" href="https://developer.chrome.com/docs/devtools/javascript/snippets/"><img data-src="img/JavaScript_logo.png" style="width: 200px; height: 200px;"></a>
+					<img data-src="img/html.png" style="width: 20%; height: 20%;">
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que permita ingresar 2 números y al presionar un botón muestre su suma y su producto en un párrafo.</p>
+				</section>
+				<section>
+					<pre><code class="html">
+						<!-- HTML -->
+						<h1>Leer 2 números y muestra su suma y producto en un párrafo </h1>
+						<label for="numero1">Ingrese los números</label>
+						<input type="number" id="numero1">
+						<input type="number" id="numero2">
+						<!-- Para poder solicitar el resultado, habrá que presionar el botón -->
+						<input type="button" id="boton" value="Consultar">
+						<!-- El resultado se desplegará en un párrafo -->
+						<p id="resultado">La suma  es 20 y el producto es 100</p>
+
+						<!-- JS -->
+						window.addEventListener('load', inicio);
+						function inicio(){
+							document.getElementById("boton").addEventListener("click", proceso);
+						}
+						function proceso(){
+							let num1 = parseInt(document.getElementById("numero1").value);
+							let num2 = parseInt(document.getElementById("numero2").value);
+							mostrarEnPantalla("La suma  es " + (num1+num2)+ " y el producto es " + num1*num2);	
+						}
+						function mostrarEnPantalla(textoMostrar){
+							document.getElementById("resultado").innerHTML = textoMostrar;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que permita ingresar un número y al presionar un botón muestre en una lista cada número ingresado y la indicación de si es par o impar</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que permita ingresar una palabra y al presionar un botón muestre en una tabla la palabra original y la indicación de si es palíndroma o no</p>
+					<p>Con cada nueva consulta se agrega la información en la tabla</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que permita ingresar 2 números y según la selección de un radio button (+ - * /) realice la operación elegida.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que permita ingresar números y los vaya mostrando en una tabla. Simultáneamente muestra el mayor de los ingresados y el promedio.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que ingrese un nombre, y si no está repetido, lo muestra en una lista.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página para adivinar un número.</p>
+					<p>El programa genera un número al azar entre 1 y 100, el jugador ingresa el número y el programa indica si acertó, si es más grande o más chico.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar una página que contenga imágenes de una lámpara y un interruptor. Al presionar el interruptor, la lámpara debe prenderse.</p>
+					<p>Se cuenta con las imágenes necesarias de la lámpara y el interruptor para ambos escenarios (encendida y apagada).</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar un formulario para ingresar usuario y contraseña. Disponer de un botón para enviar y limpiar el formulario.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Diseñar un formulario para ingresar información general de un usuario:nombre (hasta 12 caracteres), contraseña (máximo 8 caracteres), género (masculino o femenino), dirección, fecha de nacimiento, cantidad de hijos (de 1 a 10), forma de contacto preferida (combo con opciones), comentarios (área de texto) y correo (e-mail).</p>
+					<p>Al enviar el formulario indicar si los comentarios contienen la palabra “Bueno” o no.</p>
+				</section>
+
+			</section>
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
 				<img data-src="img/programadora.png" width="50%" height="50%" style="background: none; border-radius: 20px;">

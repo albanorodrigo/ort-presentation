@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Programacion 1</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+</head>
+<body onload="myOnLoad()">
+    
+    <div id="header" class="menu">
+      <a class="menu-item" href="#"><span class="titulo">Tus Reclamos</span></a>
+      <a class="menu-item" href="#" onclick="controlDivHeader('divPpal')">Principal</a>
+      <a class="menu-item" href="#" onclick="controlDivHeader('divVerReclamos'); cargarVerReclamos(false);">Ver Reclamos</a>
+      <a class="menu-item" href="#" onclick="controlDivHeader('divEstadisticas'); ordernarTablaEstadistica();">Estadísticas</a>
+      <a class="menu-item" href="#" onclick="controlDivHeader('divAgregarEmpresa')">Agregar Empresa</a>
+      <input type="text" id="inputBuscar">
+      <button onclick="controlDivHeader('divVerReclamos'); cargarVerReclamos(true);">Buscar</button>
+    </div>
+
+
+    <div id="divPpal">
+        <h1>Sitio para la gestión de reclamos</h1>
+
+        <h3>Este sitio permite ingresar reclamos o quejas y realizar diversas consultas.</h3>
+        <p>Sitio desarrollado en el curso de Programación 1 - 1er semenestre 2023 - Universidad ORT Uruguay por:</p>
+
+
+        <p><a target="_blank" href="img/user-sinfoto.jpg"><img src="img/user-sinfoto.jpg" width="30px" height="30px" class="img-small"></a> Nombre Apellido y numero de estudiante</p>
+        <p><a target="_blank" href="img/user-sinfoto.jpg"><img src="img/user-sinfoto.jpg" width="30px" height="30px" class="img-small"></a> Nombre Apellido y numero de estudiante</p>
+
+        <div style="text-align: center; padding-top: 50px;">
+            <button class="btn-add-claim" onclick="crearReclamo()">Agrega tu reclamo aquí</button>
+        </div>
+        
+    </div>
+
+    <div id="divAgregarEmpresa">
+        <h1>Agregar Empresa</h1>
+        <h3>Datos:</h3>
+
+        <p>Nombre: <input type="text" id="newEmpresa_Nombre"></p>
+        <p>Direccion: <input type="text" id="newEmpresa_Direccion"></p>
+        <p>Rubro: <select name="newEmpresa_Rubros" id="newEmpresa_Rubros"></select></p>
+        <p>       <button onclick="agregarEmpresa()">Agregar</button></p>
+        
+    </div>
+
+    <div id="divAgregarReclamo">
+        <h1>Agregar Reclamo</h1>
+
+        <p>Nombre: <input type="text" id="newReclamo_Nombre" placeholder="Tu nombre"></p>
+        <p>Empresa: <select name="newReclamo_Empresas" id="newReclamo_Empresas"></select></p>
+        <p>Reclamo: <input type="text" id="newReclamo_Titulo" placeholder="El titulo es..."></p>
+        <p><textarea id="newReclamo_Descripcion" cols="30" rows="10"></textarea></p>
+        <p>       <button onclick="agregarReclamo()">Agregar</button></p>
+    </div>
+
+    <div id="divVerReclamos">
+        <h1>Reclamos ingresados (los más recientes primero)</h1>
+
+        <div id="divGenerateVerReclamos">
+
+        </div>
+    </div>
+
+    <div id="divEstadisticas">
+        <h1>Estadísticas</h1>
+        <h3>Empresas Seleccionadas</h3>
+        
+        <p style="text-align: center;">
+            <button id="btn-filtro-s" class="btn-filtro" onclick="changeFiltroTabla('S')">S</button>
+            <button id="btn-filtro-t" class="btn-filtro" onclick="changeFiltroTabla('T')">T</button>
+            <button id="btn-filtro-all" class="btn-filtro btn-filtro-activo" onclick="changeFiltroTabla('*')">*</button>
+        </p>
+
+        <p style="text-align: center;">
+            <input checked="checked" type="radio" onclick="ordernarTablaEstadistica()" name="radioOrderNombre" value="creciente"> Ordernar por nombre creciente  
+            <input type="radio" onclick="ordernarTablaEstadistica()" name="radioOrderNombre" value="decreciente"> Ordenar por nombre decreciente
+        </p>
+        <p style="text-align: center;">Empresas: todas</p>
+        <div id="divTable"></div>
+
+        <div id="divInfoEstadisticas"></div>
+    </div>
+
+    
+
+</body>
+
+<script src="js/classes.js"></script>
+<script src="js/app.js"></script>
+</html>

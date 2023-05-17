@@ -1,0 +1,113 @@
+/* Seteamos estilo background color */
+body {
+    background-color: green;
+}
+
+/* Seteamos estilos para menu items */
+.menu-item {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+/* Seteamos estilos para select menu item */
+.active {
+    background-color: white;
+    color: green;
+    display: block;
+}
+
+
+/* Seteamos estilos para ppal div */
+#divPpal {
+    background-color: salmon;
+}
+
+#divAgregarEmpresa {
+    background-color: greenyellow;
+    display: none;
+}
+
+#divAgregarReclamo {
+    background-color: burlywood;
+    display: none;
+}
+
+#divEstadisticas {
+    background-color: burlywood;
+    display: none;
+}
+
+#divVerReclamos {
+    background-color: burlywood;
+    display: none;
+}
+
+#divTable {
+    background-color: white;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    border:3px solid black;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Clase para el div Iterador de Reclamos */
+.divIteradorReclamo {
+    background-color: white;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    border:3px solid black;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.img-small {
+    border: black; 
+    border-radius: 5px;
+}
+
+.titulo {
+    
+}
+
+.btn-add-claim {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 22px;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+
+table {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+ }
+ th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 2px solid #000;
+    text-align: center;
+ }
+
+ .btn-filtro {
+    border-radius: 5px;
+    text-align: center;
+    width:30px;
+    cursor:pointer;
+ }
+
+ .btn-filtro-activo {
+    background-color: green;
+}
