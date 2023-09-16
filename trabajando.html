@@ -995,20 +995,34 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<pre><code class="hljs javascript" data-trim data-noescape>
 
-							const segundos = parseInt(prompt("Por favor, ingrese cantidad de segundos"));
-							const unDiaEnSegundos = 86400;
-							const unaHoraEnSegundos = 3600;
-							const unMinutoEnSegundos = 60;
-						  
-							const dias = Math.floor(segundos / unDiaEnSegundos);
-							segundos %= unDiaEnSegundos;
-						  
-							const horas = Math.floor(segundos / unaHoraEnSegundos);
-							segundos %= unaHoraEnSegundos;
-						  
-							const minutos = Math.floor(segundos / unMinutoEnSegundos);
-							segundos %= unMinutoEnSegundos;
+						let segundos = parseInt(prompt("Ingrese la cantidad de segundos: "));
+						if(segundos < 1000000) {
+							let dias = (((segundos / 60) / 60) / 24);
 							
+							if (dias >= 1) {
+								segundos -= Math.trunc(dias) * 86400;
+							}
+							
+							let horas = ((segundos / 60) / 60);
+							
+							if (horas >= 1) {
+								segundos -= Math.trunc(horas) * 3600;
+							}
+							
+							let minutos = segundos / 60;
+							
+							if (minutos >= 1) {
+								segundos -= Math.trunc(minutos) * 60;
+							}
+							
+							console.log("Dias: " + Math.trunc(dias));
+							console.log("Horas: " + Math.trunc(horas));
+							console.log("Minutos: " + Math.trunc(minutos));
+							console.log("Segundos: " + Math.trunc(segundos));
+						}
+						else {
+							alert("Ingrese un numero menor a 1.000.000");
+						}						
 						  
 					</code></pre>
 
