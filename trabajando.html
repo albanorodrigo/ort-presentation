@@ -124,11 +124,11 @@
 						<li><a href="#/7">Práctico - Consola</a></li>
 						<li><a href="#/8">Práctico - Snippets</a></li>
 						<li><a href="#/9">Práctico - Funciones y String Basicos</a></li>
-						<li><a href="#/10">Ejercicios Parcial 1</a></li>
-						<li><a href="#/11">Práctico - Funciones y String Avanzados</a></li>
-						<li><a href="#/12">Práctico - Arrays</a></li>
-						<li><a href="#/13">Práctico - HTML y JS</a></li>
-						<li><a href="#/14">Práctico - Objetos y Clases</a></li>
+						<!-- <li><a href="#/10">Ejercicios Parcial 1</a></li> -->
+						<li><a href="#/10">Práctico - Funciones y String Avanzados</a></li>
+						<li><a href="#/11">Práctico - Arrays</a></li>
+						<li><a href="#/12">Práctico - HTML y JS</a></li>
+						<li><a href="#/13">Práctico - Objetos y Clases</a></li>
 					</ul>
 				</small>
 			</section>
@@ -1598,7 +1598,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<p>Se tiene una caja fuerte rodeada de 100 sensores de alarma. Cada sensor puede estar prendido o no. Implementar una función que reciba el array con la información de los sensores y retorne la cantidad de sensores que cumplen que él y sus dos vecinos están prendidos.</p>
-					<small>Ejemplo con 10 sensores: [true, true, false, true, true, true, true, true, false, true], retorna 4</small>
+					<small>Ejemplo con 10 sensores: [true, true, false, true, true, true, true, true, false, true], retorna 3</small>
 				</section>
 
 				<section>
@@ -1610,15 +1610,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 									cant++;
 								}
 							}
-							if (datos[0]&& datos[1]&&datos[datos.length-1]){
-								cant++;
-							}
-						
-							if (datos[0]&& datos[datos.length-2]&&datos[datos.length-1]){
-								cant++;
-							}
-							
-							 return cant; 
+							return cant; 
 						}
 					</code></pre>
 				</section>
