@@ -1713,10 +1713,141 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					<p>Diseñar una página que permita ingresar un número y al presionar un botón muestre en una lista cada número ingresado y la indicación de si es par o impar</p>
 				</section>
 				<section>
+					<pre><code class="html">
+						<!-- HTML -->
+						<!doctype html>
+						<html lang="es">
+							<head>
+								<meta charset="utf-8">
+							
+							<title> Ejercicio 2</title>
+							<script src="js/ejercicio2.js"></script>
+							</head>
+							<body>
+								<h1>Lee un número y muestra en una lista el número y la indicación de si es par o no
+								</h1>
+								
+								<label for="dato">Ingrese el dato</label>
+								<input type="number" id="dato"  >
+
+								
+								<!-- Para poder solicitar el resultado, habrá que presionar el botón -->
+								<input type="button" id = "boton" value="Consultar">
+								<!-- El resultado se desplegará en una lista -->
+
+								<ul id="lista">
+								</ul>
+
+							</body>
+						</html>
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+						<!-- JS -->
+						window.addEventListener('load', inicio);
+
+						function inicio(){
+							document.getElementById("boton").addEventListener("click", proceso);
+						}
+						function proceso(){
+							let numero = parseInt(document.getElementById("dato").value);
+
+							agregarElementoEnLista(generar(numero));
+
+						}
+
+						function generar(valor){
+							let res = "El dato ingresado es " + valor;
+
+							if (valor %2===0){
+								res += " es par";
+							}
+							else {
+								res += " es impar";
+							}
+							return res;
+						}
+								
+
+						function agregarElementoEnLista(texto){
+							
+							let node = document.createElement("LI");   
+							let  textnode = document.createTextNode(texto);
+							node.appendChild(textnode);   
+							document.getElementById("lista").appendChild(node);
+						}
+
+					</code></pre>
+				</section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<p>Diseñar una página que permita ingresar una palabra y al presionar un botón muestre en una tabla la palabra original y la indicación de si es palíndroma o no</p>
 					<p>Con cada nueva consulta se agrega la información en la tabla</p>
+				</section>
+				<section>
+					<pre><code class="html">
+						<!-- HTML -->
+						<!doctype html>
+						<html lang="es">
+						<head>
+							<meta charset="utf-8">
+							<title> Ejercicio 3</title>
+							<script src="js/ejercicio3.js"></script>
+						</head>
+						<body>
+							<h1>Lee una palabra y muestra en una tabla si es palíndroma</h1>
+							<label for="palabra">Ingrese la palabra</label>
+							<input type="text" id="palabra"  >
+							<!-- Para poder solicitar el resultado, habrá que presionar el botón -->
+							<input type="button" id = "boton" value="Consultar">
+							<!-- El resultado se desplegará en una lista -->
+							<table id="tabla">
+							</table>
+						</body>
+						</html>
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+						<!-- JS -->
+						window.addEventListener('load', inicio);
+
+						function inicio(){
+							document.getElementById("boton").addEventListener("click", proceso);
+						}
+						function proceso(){
+							let palabra = document.getElementById("palabra").value;
+							agregarFilaEnTabla(palabra, palindromo(palabra));
+
+						}
+
+						function agregarFilaEnTabla(pal,res){
+							let  tablaPantalla = document.getElementById("tabla");
+							let  fila = tablaPantalla.insertRow();
+							let celdaIzq = fila.insertCell();
+							celdaIzq.innerHTML= pal;
+							let celdaDer = fila.insertCell();
+							celdaDer.innerHTML= res;
+							
+						}
+
+						function invertir(palabra){
+							let nueva="";
+							for (let i = palabra.length -1; i >=0; i--){
+								nueva = nueva + palabra[i];
+							}
+							return nueva;
+						}
+						function palindromo(palabra){
+							let res= "NO";
+							if( palabra===invertir(palabra)){
+								res="SI"	;
+							}
+							return res;
+						}
+					</code></pre>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
