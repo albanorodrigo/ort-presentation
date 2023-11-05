@@ -1912,6 +1912,18 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					</code></pre>
 				</section>
 				<section>
+					<pre><code class="javascript">
+						var estudiante = { 
+						nombre : "Ana Perez", 
+						semestre : "2", 
+						ingreso : 2018 };
+						
+						for(let propiedad in estudiante){
+							alert(propiedad);
+						}
+					</code></pre>
+				</section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 						<p>Inicializar un objeto en forma literal para contener información de una receta de cocina para empanadas. Debe tener titulo (string), porciones (número) e ingredientes (array de string).</p>
@@ -1926,10 +1938,51 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 						</ul>
 				</section>
 				<section>
+					<pre><code class="javascript">
+						var receta = {
+							'titulo': 'Empanadas caseras',
+							'porciones': 2,
+							'ingredientes': ['harina', 'agua', 'carne']
+						};
+						
+						console.log(receta.titulo);
+						console.log(receta.porciones);
+						for (var i = 0; i < receta.ingredientes.length; i++) {
+							console.log(receta.ingredientes[i]);
+						}
+					</code></pre>
+				</section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<p>Crear un array de objetos, donde cada objeto corresponde a un auto. Cada auto tiene chapa (string), marca (string) y la indicación de si tiene paga la patente o no. Incluir 2 autos. Utilizar la forma literal.</p>
 					<p>Recorrer el array y por cada auto indicar marca, chapa y “al día” o “atrasado” según tenga paga la patente o no.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+						var autos = [
+							{
+								chapa: 'SBA 1234',
+								marca: 'FORD',
+								paga: false
+							},
+							{
+								chapa: 'DCD 2222',
+								marca: 'VW',
+								paga: true
+							}
+						];
+
+						for (var i = 0; i < autos.length; i++) {
+							var auto = autos[i];
+							var datos = auto.chapa + ' de la marca ' + auto.marca;
+							if (auto.paga) {
+								console.log(datos + ' al día');
+							} else {
+								console.log(datos + ' atrasado');
+							}
+						}
+					</code></pre>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -1949,6 +2002,17 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					</code></pre>
 				</section>
 				<section>
+					<pre><code class="javascript">
+						function totalCompra(carrito){
+							let suma = 0; 
+							for (let valor in carrito) {
+							   suma += Number.parseFloat(carrito[valor]); 
+							}
+							return suma;
+						}
+					</code></pre>
+				</section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 						<small>Definir la clase Punto que representa una coordenada en el plano a partir de x e y. Definir el constructor y el método sumar, que recibe un punto y retorne un nuevo punto a partir de la suma de las respectivas coordenadas.</small>
@@ -1961,10 +2025,47 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 					</code></pre>
 				</section>
 				<section>
+					<pre><code class="javascript">
+						class Punto {
+							constructor(x, y) {
+							  this.x = x, this.y = y
+							}
+							sumar(otro) {
+							  return new Punto(this.x + otro.x, this.y + otro.y)
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 						<p>Crear la clase CuentaBancaria, que tiene nombre y saldo. Tiene también un método depositar y de impresión.</p>
 						<p>Crear 3 cuentas para ejemplificar su uso, incluyendo depósitos.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+						class Cuenta{
+							constructor(nombre, saldo){
+								this.nombre=nombre;
+								this.saldo=saldo;
+							}
+							depositar(monto){
+								this.saldo+= monto;
+							}
+							toString(){
+								return "Cuenta de "+this.nombre+ " $ "+this.saldo;
+							}
+						}
+						
+						let c11 = new Cuenta("Ana",1000);
+						let c21 = new Cuenta("Luis",500);
+						let c31 = new Cuenta("Pedro",800);
+						alert(c11);
+						alert(c21);
+						alert(c31);
+						c11.depositar(500);
+						alert(c11);
+					</code></pre>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
