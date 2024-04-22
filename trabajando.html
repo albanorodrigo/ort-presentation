@@ -124,11 +124,12 @@
 						<li><a href="#/7">Práctico - Consola</a></li>
 						<li><a href="#/8">Práctico - Snippets</a></li>
 						<li><a href="#/9">Práctico - Funciones y String Basicos</a></li>
-						<li><a href="#/10">Ejercicios Parcial 1</a></li>
-						<li><a href="#/11">Práctico - Funciones y String Avanzados</a></li>
-						<li><a href="#/12">Práctico - Arrays</a></li>
-						<li><a href="#/13">Práctico - HTML y JS</a></li>
-						<li><a href="#/14">Práctico - Objetos y Clases</a></li>
+						<li><a href="#/10">Ejercicios Parcial Abril 2023 Mat</a></li>
+						<li><a href="#/11">Ejercicios Parcial Abril 2024 Mat</a></li>
+						<li><a href="#/12">Práctico - Funciones y String Avanzados</a></li>
+						<li><a href="#/13">Práctico - Arrays</a></li>
+						<li><a href="#/14">Práctico - HTML y JS</a></li>
+						<li><a href="#/15">Práctico - Objetos y Clases</a></li>
 					</ul>
 				</small>
 			</section>
@@ -1355,6 +1356,7 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 			</section>
 			<!-- FIN DEL PRACTICO 6 -->
 
+			<!-- PARCIAL Abril 2023 MAT -->
 			<section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -1438,7 +1440,129 @@ inclusive.</p> <p> Ej: n = 7 Serie: 22 3 5 4 24 17 19 Mayor 24, Suma 58
 						</code></pre>
 				</section>
 			</section>
+			<!-- FIN -->
 
+			<!-- PARCIAL Abril 2024 MAT -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					
+					<h2>Ejercicios del Parcial 1 - Abril 2024 Mat.</h2>
+					<img data-src="img/test.png" style="width: 200px; height: 200px;">
+				</section>
+				<section>
+					
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Ejercicio 1</h4>
+					<pre><code data-trim data-noescape>
+						// Variables para almacenar los datos
+						let totalPedidos = 0;
+						let precioMaximoMostrador = 0;
+						let contadorMostrador = 0;
+						let contadorEnvio = 0;
+
+						// Proceso principal
+						let continuar = prompt("¿Desea ingresar un pedido? (SI/NO)");
+						continuar = continuar.toUpperCase();
+
+						while (continuar === "SI") {
+							let modoRetiro = prompt("Ingrese el modo de retiro ('M' para mostrador, 'E' para envío):").toUpperCase();
+							let precioPedido = parseInt(prompt("Ingrese el precio del pedido:"));
+
+							totalPedidos++;
+							if (modoRetiro === "M") {
+								contadorMostrador++;
+								if (precioPedido > precioMaximoMostrador) {
+									precioMaximoMostrador = precioPedido;
+								}
+							} else {
+								contadorEnvio++;
+							}
+
+							continuar = prompt("¿Desea ingresar otro pedido? (SI/NO)");
+							continuar = continuar.toUpperCase();
+						}
+
+						// Mostrar resultados por consola
+						if (totalPedidos === 0) {
+							console.log("No hay datos para mostrar.");
+						} else {
+							console.log("Cantidad total de pedidos ingresados:", totalPedidos);
+							console.log("Precio máximo de un pedido retirado por Mostrador:", precioMaximoMostrador);
+							if (contadorMostrador > contadorEnvio) {
+								console.log("Hubo más pedidos por Mostrador que por Envío.");
+							} else {
+								console.log("No hubo más pedidos por Mostrador que por Envío.");
+							}
+						}
+
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+						<h4>Ejercicio 2</h4>
+						<pre><code data-trim data-noescape>
+							// Asistencia de ejemplo
+							let asistencia = "11111111110111111111111111111111";
+
+							// Verifica que el string tenga al menos 30 caracteres
+							if (asistencia.length >= 30) {
+								let faltas = 0;
+								let primeraClase = asistencia.charAt(0);
+								let ultimaClase = asistencia.charAt(asistencia.length - 1);
+
+								// Calcula el número de faltas
+								for (let i = 0; i < asistencia.length; i++) {
+									if (asistencia.charAt(i) === "0") {
+										faltas++;
+									}
+								}
+
+								// Determina la calificación de asistencia
+								if (faltas === 0) {
+									alert("Excelente asistencia");
+								} else if (faltas === 1 && primeraClase === "1" && ultimaClase === "1") {
+									alert("Muy buena asistencia");
+								} else {
+									alert("Asistencia a mejorar");
+								}
+							} else {
+								alert("El string de asistencia debe tener al menos 30 caracteres.");
+							}
+						</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+						<h4>Ejercicio 3</h4>
+						<pre><code data-trim data-noescape>
+							// Lee el valor de n y el caracter
+							let dato = parseInt(prompt("Ingrese la cantidad por cada lado del cuadrado:"));
+							let caracter = prompt("Ingrese el caracter a usar:");
+
+							// Verifica que n sea un número válido
+							if (dato > 0) {
+								for(let fila = 1; fila <= dato; fila++){
+									let linea = "";
+									for(let col = 1; col <= dato; col++){
+										if(col >= fila){
+											linea += caracter;
+										}else{
+											linea += '$';
+										}
+									}
+									console.log(linea);
+								}
+							} else {
+								console.log("La cantidad ingresada no es válida.");
+							}
+						</code></pre>
+				</section>
+			</section>
+			<!-- FIN -->
 			<!-- PRACTICO 7 - Funciones y String Avanzados -->
 			<section>
 				<section>
