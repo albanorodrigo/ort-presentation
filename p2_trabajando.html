@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Programación 2</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+
+	<!-- <link rel="stylesheet" href="dist/theme/black.css"> -->
+	<link rel="stylesheet" href="dist/theme/moon.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<img data-src="img/logo-universidad-ort-uruguay.svg" width="25%" height="25%"
+					style="margin: none; background: none; border: none; box-shadow: none;">
+				<h2>Programación 2</h2>
+				<p>
+					<small>Lic. Rodrigo Albano</small>
+				</p>
+				<p>
+					<small>
+						<script type="text/javascript">
+							date = new Date();
+							anio = date.getFullYear();
+							document.write('rodrigo.albano@fi365.ort.edu.uy | ' + anio);
+						</script>
+					</small>
+				</p>
+				<img data-src="img/logo_java.jpg" width="200px" height="200px"
+					style="margin: 10px; background: none; border: none; box-shadow: none; border-radius: 10%;">
+				<a href="https://netbeans.apache.org/front/main/download/" target="_blank">
+					<img data-src="img/NetBeans-Logo.wine.png" width="200px" height="200px"
+						style="margin: 10px; background: white; border: none; box-shadow: none; border-radius: 10%;">
+				</a>
+			</section>
+
+			<section>
+				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+					style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+				<img data-src="img/Rodrigo_Albano.jpg" width="250px" height="350px" style="border-radius: 10px;">
+
+				<p>
+					<small>Licenciado en Sistemas - Universidad ORT</small>
+					<!-- <small>Posgrado en Sistema de Información & Gestión - UDELAR</small> -->
+				</p>
+				<p><small>CGO - GlobalUY</small></p>
+				<img data-src="img/pelota.png" width="100px" height="100px"
+					style="margin: 10px; background: none; border: none; box-shadow: none; border-radius: 10%;">
+				<img data-src="img/aventurero.png" width="100px" height="100px"
+					style="margin: 10px; background: none; border: none; box-shadow: none; border-radius: 10%;">
+				<img data-src="img/programador.png" width="100px" height="100px"
+					style="margin: 10px; background: none; border: none; box-shadow: none; border-radius: 10%;">
+
+			</section>
+
+			<section>
+				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+					style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+				<h3>Evaluaciones</h3>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Instancia</th>
+							<th>Mínimo</th>
+							<th>Máximo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ejercicios (4 tareas)</td>
+							<td>0</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td>Parcial 2</td>
+							<td>20</td>
+							<td>45</td>
+						</tr>
+						<tr>
+							<td>Obligatorio 1</td>
+							<td>0</td>
+							<td>20</td>
+						</tr>
+						<tr>
+							<td>Obligatorio 2</td>
+							<td>12</td>
+							<td>25</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					<small>Para aprobar se deben obtener 70 o más puntos y superar los mínimos requeridos.</small>
+					<small>Para exonerar se deben obtener 86 o más puntos y superar los mínimos requeridos.</small>
+				</p>
+
+			</section>
+
+			<!-- Indice -->
+			<section>
+				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+					style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+				<h3>Desarrollo del Curso</h3>
+				<small>
+					<ul>
+						<li><a href="#/4">Objetivos del Curso</a></li>
+						<li><a href="#/5">Introducción a JAVA y Codificaciones Básicas</a></li>
+						<!-- <li><a href="#/6">Arrays</a></li>
+						<li><a href="#/7">Matrices</a></li>
+						<li><a href="#/8">Usos de clases standard: String - Math</a></li>
+						<li><a href="#/9">Objetos (básico)</a></li>
+						<li><a href="#/10">Relaciones entre clases</a></li>
+						<li><a href="#/11">ArrayList</a></li>
+						<li><a href="#/12">CRH, Diseño</a></li>
+						<li><a href="#/13">Interfaz gráfica</a></li>
+						<li><a href="#/14">Persistencia</a></li>
+						<li><a href="#/15">Archivos de texto</a></li>
+						<li><a href="#/16">Excepciones</a></li> -->
+					</ul>
+				</small>
+			</section>
+
+			<!-- OBJETIVOS DEL CURSO -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h3>Objetivos del Curso</h3>
+
+					<ul>
+						<li>Continuar la formación en el área de programación,
+							con fuerte énfasis en la programación orientada a objetos y en algoritmia más avanzada
+						</li>
+						<li>Desarrollar aplicaciones orientadas a objetos</li>
+					</ul>
+					<h5>Implica:</h5>
+					<ul>
+						<li>Conocer y comprender los principales conceptos de la programación orientada a objetos</li>
+						<li>Programar aplicaciones de forma robusta, correcta y eficiente con enfoque de orientación a
+							objetos</li>
+					</ul>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h3>Relación Teórico - Práctico</h3>
+					<ul>
+						<li>
+							El práctico está desfasado del teórico para que primero se puedan ver los conceptos y luego
+							en práctico ser aplicados
+						</li>
+					</ul>
+				</section>
+			</section>
+			<!-- FIN OBJETIVOS DEL CURSO -->
+
+			<!-- Introducción a Java y Codificación Básica -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Realizar un programa que pida el nombre, edad y salario de un funcionario y muestra el
+							nombre y
+							el salario total a cobrar. Se debe verificar que la edad sea mayor o igual a 18. Si no es
+							así,
+							reingresarla hasta que esté en el rango
+						</p>
+					</small>
+					<p>
+						El salario total se calcula:
+					<ul>
+						<li>De 18 a 50 años el total es un 5 por ciento más</li>
+						<li>De 51 a 60 años el total es un 10 por ciento más</li>
+						<li>Si es mayor de 60 el total es un 15 por ciento más</li>
+					</ul>
+					</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p> Pedir el ingreso de 10 números y mostrar la suma de ellos.</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p> Ingresar una cantidad de grados centígrados y mostrarlos en Fahrenheit. La fórmula es:</p>
+					<p>F = 32 + (9 * C / 5)</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p> Leer una velocidad en Km/h y mostrarla en m/s</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Leer un número de 3 cifras y mostrar sus dígitos</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Imprimir 10, 20, ..., 1000. Diseñar soluciones diferentes utilizando: for, while, do while</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Pedir el ingreso de 10 números e indicar la suma de los pares y la de los impares</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Anotar 4 enunciados diferentes en Java que sumen 1 a la variable entera i</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Ingresar la hora y minutos de entrada de un funcionario a la empresa, también la hora y minutos
+						de salida.</p>
+					<p>Indicar la cantidad de horas y minutos que trabajó. </p>
+					<p>Se asume que el funcionario entra y sale durante el mismo día</p>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Jugar a “Piedra” “Papel” o “Tijera”</h4>
+					<p>Cada usuario ingresa el número de opción: 1: Piedra, 2: Papel, 3: Tijera y el programa debe indicar si gana el primer jugador, el segundo o es empate. 
+					<p>La piedra le	gana a la tijera, el papel le gana a la piedra y la tijera le gana al papel</p>
+				</section>
+			</section>
+			<!-- FIN -->
+			<section>
+				<p>¡Hasta la Próxima Semana!</p>
+				<img data-src="img/programadora.png" width="50%" height="50%"
+					style="background: none; border-radius: 20px;">
+				<h5>Muchas gracias</h5>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
