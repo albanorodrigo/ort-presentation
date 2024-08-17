@@ -186,7 +186,7 @@
 			</section>
 			<!-- FIN OBJETIVOS DEL CURSO -->
 
-			<!-- Ejercicios de Pseudocódigo -->
+			<!-- Ejercicios de Pseudocódigo. -->
 			<section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -206,6 +206,74 @@
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						INICIO
+
+						// Inicializar contadores para cada estado de conexión
+						contarBueno ← 0
+						contarRegular ← 0
+						contarMalo ← 0
+
+						// Repetir el proceso para cada una de las 100 plazas
+						PARA i DESDE 1 HASTA 100 HACER
+							REPETIR
+								// Solicitar el estado de la conexión para la plaza
+								Imprimir "Ingrese el estado de la conexión (Bueno, Regular, Malo):"
+								estado ← LEER entradaUsuario
+								
+								// Verificar si el estado ingresado es válido
+								SI estado ES "Bueno" ENTONCES
+									contarBueno ← contarBueno + 1
+									estadoValido ← VERDADERO
+								FIN SI
+								
+								SI estado ES "Regular" ENTONCES
+									contarRegular ← contarRegular + 1
+									estadoValido ← VERDADERO
+								FIN SI
+								
+								SI estado ES "Malo" ENTONCES
+									contarMalo ← contarMalo + 1
+									estadoValido ← VERDADERO
+								FIN SI
+								
+								// Si el estado ingresado no es válido, mostrar mensaje de error
+								SI estadoValido ES FALSO ENTONCES
+									Imprimir "Estado inválido, por favor ingrese 'Bueno', 'Regular' o 'Malo'."
+								FIN SI
+
+							HASTA QUE estadoValido ES VERDADERO
+						FIN PARA
+
+						// Mostrar la cantidad de plazas en cada estado
+						Imprimir "Cantidad de plazas en estado Bueno: ", contarBueno
+						Imprimir "Cantidad de plazas en estado Regular: ", contarRegular
+						Imprimir "Cantidad de plazas en estado Malo: ", contarMalo
+
+						// Verificar si algún estado supera a los otros dos
+						SI contarBueno > contarRegular Y contarBueno > contarMalo ENTONCES
+							Imprimir "La cantidad de plazas en estado Bueno supera a la cantidad de plazas en estado Regular y Malo."
+						FIN SI
+
+						SI contarRegular > contarBueno Y contarRegular > contarMalo ENTONCES
+							Imprimir "La cantidad de plazas en estado Regular supera a la cantidad de plazas en estado Bueno y Malo."
+						FIN SI
+
+						SI contarMalo > contarBueno Y contarMalo > contarRegular ENTONCES
+							Imprimir "La cantidad de plazas en estado Malo supera a la cantidad de plazas en estado Bueno y Regular."
+						FIN SI
+
+						// Si ningún estado supera a los otros dos
+						SI (contarBueno = contarRegular) O (contarBueno = contarMalo) O (contarRegular = contarMalo) O (contarBueno = contarRegular = contarMalo) ENTONCES
+							Imprimir "No hay ningún estado que supere a cada uno de los otros dos."
+						FIN SI
+
+					FIN
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 
 					<small>
 						<p>Se tiene información de los recorridos de los monopatines eléctricos. Hasta que el usuario lo indique, se ingresará número de monopatín (se asume positivo). </p>
@@ -213,6 +281,64 @@
 						<p>Por cada número de monopatín, se ingresa la cantidad de usos que tuvo ese monopatín y el total de km recorridos. </p>
 						<p>Al final del proceso de todos los datos, mostrar el total de km entre los monopatines que fueron usados más de 20 veces.</p>
 					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						INICIO
+
+						// Inicializar variables
+						numeroMonopatinPrevio ← 0
+						totalKmMasDe20Usos ← 0
+						continuarIngreso ← VERDADERO
+
+						MIENTRAS continuarIngreso ES VERDADERO HACER
+							
+							// Solicitar y validar el número de monopatín
+							REPETIR
+								Imprimir "Ingrese el número de monopatín (positivo y mayor que el anterior):"
+								numeroMonopatin ← LEER entradaUsuario
+								
+								SI numeroMonopatin > numeroMonopatinPrevio ENTONCES
+									numeroValido ← VERDADERO
+								SINO
+									Imprimir "Número inválido. Debe ser mayor que el número de monopatín anterior."
+									numeroValido ← FALSO
+								FIN SI
+								
+							HASTA QUE numeroValido ES VERDADERO
+
+							// Actualizar el número de monopatín previo
+							numeroMonopatinPrevio ← numeroMonopatin
+
+							// Solicitar la cantidad de usos y los km recorridos
+							Imprimir "Ingrese la cantidad de usos del monopatín:"
+							cantidadUsos ← LEER entradaUsuario
+
+							Imprimir "Ingrese el total de km recorridos por el monopatín:"
+							kmRecorridos ← LEER entradaUsuario
+
+							// Si el monopatín fue usado más de 20 veces, acumular sus km recorridos
+							SI cantidadUsos > 20 ENTONCES
+								totalKmMasDe20Usos ← totalKmMasDe20Usos + kmRecorridos
+							FIN SI
+
+							// Preguntar al usuario si desea continuar ingresando datos
+							Imprimir "¿Desea ingresar otro monopatín? (S/N):"
+							respuesta ← LEER entradaUsuario
+							
+							SI respuesta = "N" O respuesta = "n" ENTONCES
+								continuarIngreso ← FALSO
+							FIN SI
+
+						FIN MIENTRAS
+
+						// Mostrar el total de km entre los monopatines usados más de 20 veces
+						Imprimir "El total de km recorridos por los monopatines usados más de 20 veces es:", totalKmMasDe20Usos
+
+					FIN
+					</code></pre>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -229,12 +355,88 @@
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						INICIO
+						// Leer la velocidad inicial E y la distancia d al hoyo
+						Imprimir "Ingrese la velocidad inicial E:"
+						E ← LEER entradaUsuario
+						
+						Imprimir "Ingrese la distancia d al hoyo:"
+						d ← LEER entradaUsuario
+						
+						// Inicializar variables
+						posicion ← 0
+						esPosible ← FALSO
+
+						// Ciclo para simular el movimiento de la pelota
+						MIENTRAS E > 0 HACER
+							// La pelota se mueve E metros E veces
+							PARA i DESDE 1 HASTA E HACER
+								posicion ← posicion + E
+								
+								// Verificar si la pelota cae en el hoyo
+								SI posicion = d ENTONCES
+									esPosible ← VERDADERO
+									SALIR DEL CICLO // Termina la simulación si ya cayó en el hoyo
+								FIN SI
+							FIN PARA
+							
+							// Reducir la velocidad de la pelota
+							E ← E - 1
+						FIN MIENTRAS
+						
+						// Mostrar si la pelota cae en el hoyo o no
+						SI esPosible ENTONCES
+							Imprimir "SI"
+						SINO
+							Imprimir "NO"
+						FIN SI
+
+					FIN
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 
 					<small>
 						<p>Aceptar un número entero positivo N y determinar si el mismo es un número primo. Desplegar por pantalla si es un número primo o compuesto, en este último caso desplegar en pantalla todos sus divisores.</p>
 						<p>Un número es primo si y sólo si es divisible únicamente entre 1 y si mismo. Por lo cual un número compuesto será todo aquel número divisible por algún otro número.</p>
 						<p>Ejemplo: N = 50 muestra en pantalla: Es compuesto, divisores 2, 5, 10, 25 (en ese orden o al reves)</p>
 					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						INICIO
+
+							// Leer el número entero positivo N
+							Imprimir "Ingrese un número entero positivo N:"
+							N ← LEER entradaUsuario
+							
+							// Inicializar variables
+							esPrimo ← VERDADERO
+							divisores ← Lista vacía
+
+							// Verificar si N es primo o compuesto
+							PARA i DESDE 2 HASTA N-1 HACER
+								SI N MOD i = 0 ENTONCES
+									esPrimo ← FALSO
+									AGREGAR i A divisores
+								FIN SI
+							FIN PARA
+
+							// Mostrar el resultado
+							SI esPrimo ENTONCES
+								Imprimir "Es primo."
+							SINO
+								Imprimir "Es compuesto, divisores:", divisores
+							FIN SI
+
+						FIN
+
+					</code></pre>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -247,7 +449,42 @@
 						<p>Para que un triángulo sea rectángulo la suma de los cuadrados de los catetos es igual a la suma del cuadrado de la hipotenusa.</p>
 					</small>
 				</section>
-				
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code data-trim data-noescape>
+						INICIO
+
+							// Leer los tres números positivos a, b, c
+							Imprimir "Ingrese el primer número positivo a:"
+							a ← LEER entradaUsuario
+							
+							Imprimir "Ingrese el segundo número positivo b:"
+							b ← LEER entradaUsuario
+							
+							Imprimir "Ingrese el tercer número positivo c:"
+							c ← LEER entradaUsuario
+							
+							// Verificar si pueden ser los lados de un triángulo
+							SI a + b > c Y a + c > b Y b + c > a ENTONCES
+								Imprimir "Los números pueden ser los lados de un triángulo."
+								
+								// Determinar si es un triángulo rectángulo
+								// Ordenar los lados para identificar la hipotenusa
+								SI a^2 + b^2 = c^2 O a^2 + c^2 = b^2 O b^2 + c^2 = a^2 ENTONCES
+									Imprimir "Es un triángulo rectángulo."
+								SINO
+									Imprimir "No es un triángulo rectángulo."
+								FIN SI
+								
+							SINO
+								Imprimir "Los números no pueden ser los lados de un triángulo."
+							FIN SI
+
+						FIN
+
+					</code></pre>
+				</section>
 			</section>
 			<!-- FIN Ejercicios de Pseudocódigo -->
 
