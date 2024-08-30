@@ -15,6 +15,17 @@
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -1131,20 +1142,26 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Marcos, distraído en la clase de física, se imagina cómo sería cambiar la gravedad. 
-							Diseñó una caja especial que contiene n columnas de cubitos. La columna i contiene ai cubos. 
-							Al principio, la gravedad en la caja es normal, o sea, empujando los cubos hacia abajo, pero cuando cambia la gravedad los empuja hacia la derecha.
+							Marcos, distraído en la clase de física, se imagina cómo sería cambiar la gravedad.
+							Diseñó una caja especial que contiene n columnas de cubitos. La columna i contiene ai cubos.
+							Al principio, la gravedad en la caja es normal, o sea, empujando los cubos hacia abajo, pero
+							cuando cambia la gravedad los empuja hacia la derecha.
 						</p>
-						<img data-src="img/PR2_Ej8.png" width="50%" height="50%" style="background: none; align-items: center;">
+						<img data-src="img/PR2_Ej8.png" width="50%" height="50%"
+							style="background: none; align-items: center;">
 						<p>
-							En la imagen de la izquierda está la caja con la gravedad normal con 4 columnas. En la imagen de la derecha, al cambiar la gravedad, se desplazan los cubos en gris.
-							A partir de la configuración inicial de los cubos, el objetivo es encontrar la cantidad de cubos en cada una de las columnas luego del cambio de gravedad. 
+							En la imagen de la izquierda está la caja con la gravedad normal con 4 columnas. En la
+							imagen de la derecha, al cambiar la gravedad, se desplazan los cubos en gris.
+							A partir de la configuración inicial de los cubos, el objetivo es encontrar la cantidad de
+							cubos en cada una de las columnas luego del cambio de gravedad.
 						</p>
 						<p>
-							Implementar un método que recibe un array con la cantidad de cubos en cada una de las columnas e imprime la cantidad de cubos de cada columna luego del cambio de gravedad. 
+							Implementar un método que recibe un array con la cantidad de cubos en cada una de las
+							columnas e imprime la cantidad de cubos de cada columna luego del cambio de gravedad.
 						</p>
 						<p>
-							Ejemplo: recibe 3 2 1 2, imprime 1 2 2 3. La firma es: public static void gravedad(int[] datos)
+							Ejemplo: recibe 3 2 1 2, imprime 1 2 2 3. La firma es: public static void gravedad(int[]
+							datos)
 						</p>
 					</small>
 				</section>
@@ -1181,21 +1198,29 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Anita colecciona tarjetas numeradas de Los Simpson. Como es muy generosa, quiere regalarle una
-							tarjeta a cada una de sus tres amigas. Sus tres amigas son especiales y requieren que, cuando se les
-							regale una tarjeta, se cumpla que:				
+							Anita colecciona tarjetas numeradas de Los Simpson. Como es muy generosa, quiere regalarle
+							una
+							tarjeta a cada una de sus tres amigas. Sus tres amigas son especiales y requieren que,
+							cuando se les
+							regale una tarjeta, se cumpla que:
 						</p>
 						<p>a) Cada par de amigas no pueden recibir el mismo número de tarjeta</p>
-						<p>b) Los números de las tarjetas recibidas entre cada par de amigas no pueden diferir en más de 2</p>
+						<p>b) Los números de las tarjetas recibidas entre cada par de amigas no pueden diferir en más de
+							2</p>
 						<p>
-							Por ejemplo, Anita tiene las tarjetas 4, 5, 3, 90, 5, 5, 91 y 93. No podría regalarles las tarjetas 5, 5 y 4,
-							porque rompería la primera regla. Tampoco podría regalarles las tarjetas 90, 91 y 93 porque rompería
-							la segunda regla. Ayudemos a Anita a verificar si puede elegir, o no, 3 de sus tarjetas que cumplan las
+							Por ejemplo, Anita tiene las tarjetas 4, 5, 3, 90, 5, 5, 91 y 93. No podría regalarles las
+							tarjetas 5, 5 y 4,
+							porque rompería la primera regla. Tampoco podría regalarles las tarjetas 90, 91 y 93 porque
+							rompería
+							la segunda regla. Ayudemos a Anita a verificar si puede elegir, o no, 3 de sus tarjetas que
+							cumplan las
 							reglas.
 						</p>
 						<p>
-							Implementar un método que reciba en un array con los datos de las tarjetas y retorna verdadero si
-							puede elegir 3 tarjetas que cumplan las reglas. Como máximo hay 50 tarjetas, cada una entre 1 y
+							Implementar un método que reciba en un array con los datos de las tarjetas y retorna
+							verdadero si
+							puede elegir 3 tarjetas que cumplan las reglas. Como máximo hay 50 tarjetas, cada una entre
+							1 y
 							1000. La firma es: public static boolean amigas(int[] tarjetas)
 						</p>
 					</small>
@@ -1240,13 +1265,17 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							¡El pez grande se come al pez chico! En este juego, se tiene un conjunto de 9 peces, cada uno de
-							un tamaño diferente de 1 a 9. Están en una fila. Cada pez puede comerse exclusivamente el pez
-							vecino a su derecha siempre y cuando sea menor que él. Se pide indicar cuál es el largo máximo de
-							la secuencia de peces que pueden ser comidos. La firma es: public static int comidos(int[] peces).							
+							¡El pez grande se come al pez chico! En este juego, se tiene un conjunto de 9 peces, cada
+							uno de
+							un tamaño diferente de 1 a 9. Están en una fila. Cada pez puede comerse exclusivamente el
+							pez
+							vecino a su derecha siempre y cuando sea menor que él. Se pide indicar cuál es el largo
+							máximo de
+							la secuencia de peces que pueden ser comidos. La firma es: public static int comidos(int[]
+							peces).
 						</p>
 						<p>
-							Ej: 
+							Ej:
 							Se recibe el array con 9 enteros (de 1 a 9 diferentes): 8 9 6 5 3 1 4 2 7, debe retornar 4.
 							Si se recibe: 1 2 3 4 5 6 7 8 9, debe retornar 0.
 							Si se recibe: 6 1 5 4 3 2 9 8 7, debe retornar 3.
@@ -1277,10 +1306,611 @@
 
 			<!-- Matrices -->
 			<section>
-				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
-					style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
-				<h1>PR 3</h1>
-				<h2>Matrices</h2>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 3</h1>
+					<h2>Matrices</h2>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p> Implementar un método que recibe una matriz que corresponde a las notas de 30 alumnos en 6
+							materias y retorna el promedio general de calificaciones (considerando los 6 exámenes).
+							public static int promedioGeneral(int[][] notas)
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int promedioGeneral(int[][] notas) {
+							int suma = 0;
+							for (int i = 0; i < notas.length; i++) {
+								for (int j = 0; j < notas[0].length; j++) {
+									suma += notas[i][j];
+								}
+							}
+							return suma / 180;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Dada una matriz rectangular, retornar un array que contenga la suma de sus columnas.
+							Encabezado: public static int[] sumas(int[][] mat)
+						</p>
+						<p>Ejemplo: dada la matriz</p>
+						<p>3 5</p>
+						<p>2 4</p>
+						<p>-1 -2</p>
+						<p>-1 8</p>
+						<p>Retorna 3 15</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int[] sumas(int[][] mat) {
+							int[] resultado = new int[mat[0].length];
+							for (int i = 0; i < mat.length; i++) {
+								for (int j = 0; j < mat[0].length; j++) {
+									resultado[j] += mat[i][j];
+								}
+							}
+							return resultado;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Se desea implementar un método que detecte si una matriz es “especial”. Una matriz es
+							especial
+							si se cumplen estas propiedades:
+						<ul>
+							<li>la suma de todos los valores de una fila, es la misma para todas las filas.</li>
+							<li>la suma de todos los valores de una columna, es la misma para todas las columnas.</li>
+							<li>las dos sumas anteriores son iguales entre sí y además es igual a la suma de los valores
+								de la diagonal principal.</li>
+						</ul>
+						</p>
+						<p>Ej: La siguiente matriz es "especial"</p>
+						<table>
+							<tr>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>2</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+							</tr>
+						</table>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean esEspecial(int[][] mat) {
+							int[] filas = new int[mat.length];
+							int[] columnas = new int[mat.length];
+							int diagonal = 0;
+							for (int i = 0; i < columnas.length; i++) {
+								diagonal += mat[i][i];
+								for (int j = 0; j < columnas.length; j++) {
+									filas[i] += mat[i][j];
+									columnas[j] += mat[i][j];
+								}
+							}
+							boolean especial = true;
+							for (int i = 0; i < filas.length; i++) {
+								if (filas[i] != diagonal) {
+									especial = false;
+								}
+								if (columnas[i] != diagonal) {
+									especial = false;
+								}
+							}
+							return especial;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Dada una matriz y una posición en esa matriz (dada por la fila y la columna) indicar si el elemento
+							que se encuentra en esa posición está repetido o no en alguna de las diagonales que pasan por esa posición.
+							public static boolean repetidos(int[][] mat, int fila, int col)
+						</p>
+						<table>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>5</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>5</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+						</table>
+						<p>Si se consulta el elemento de fila 2 y columna 1, devuelve true.</p>
+						<p>Si se consultara el elemento fila 6 columna 2, devolvería false.</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean repetidos(int[][] mat, int fila, int col) {
+							boolean repetido = false;
+							int valor = mat[fila][col];
+							// Abajo derecha
+							int i = fila + 1;
+							int j = col + 1;
+							while (i < mat.length && j < mat[0].length && !repetido) {
+								if (mat[i][j] == valor) {
+									repetido = true;
+								}
+								i++;
+								j++;
+							}
+							// Abajo izquierda
+							i = fila + 1;
+							j = col - 1;
+							while (i < mat.length && j >= 0 && !repetido) {
+								if (mat[i][j] == valor) {
+									repetido = true;
+								}
+								i++;
+								j--;
+							}
+							// Arriba derecha
+							i = fila - 1;
+							j = col + 1;
+							while (i >= 0 && j < mat[0].length && !repetido) {
+								if (mat[i][j] == valor) {
+									repetido = true;
+								}
+								i--;
+								j++;
+							}
+							// Arriba izquierda
+							i = fila - 1;
+							j = col - 1;
+							while (i >= 0 && j >= 0 && !repetido) {
+								if (mat[i][j] == valor) {
+									repetido = true;
+								}
+								i--;
+								j--;
+							}
+							return repetido;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Se recibe un mapa en una matriz rectangular de hasta 100 * 100. Representa a una única isla,
+							donde 1 representa tierra y 0 representa agua. Las posiciones de tierra están conectadas
+							horizontal/verticalmente. La isla está completamente rodeada de agua. Cada posición tiene lado 1.
+							Determinar el perímetro de la isla.
+						</p>
+						<table>
+							<tr>
+								<td>0</td>
+								<td style="background-color: yellow;">1</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td style="background-color: yellow;">1</td>
+								<td style="background-color: yellow;">1</td>
+								<td style="background-color: yellow;">1</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td style="background-color: yellow;">1</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td style="background-color: yellow;">1</td>
+								<td style="background-color: yellow;">1</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+						</table>
+						<p>Ejemplo: para la figura, el perímetro es 16.</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int calcularPerimetro(int[][] mat) {
+							int perimetro = 0;
+							for (int i = 0; i < mat.length; i++) {
+								for (int j = 0; j < mat[0].length; j++) {
+									if (mat[i][j] == 1) {
+										// arriba
+										if (i == 0) {
+											perimetro++;
+										} else {
+											if (mat[i - 1][j] == 0) {
+												perimetro++;
+											}
+										}
+										// abajo
+										if (i == mat.length - 1) {
+											perimetro++;
+										} else {
+											if (mat[i + 1][j] == 0) {
+												perimetro++;
+											}
+										}
+										// izquierda
+										if (j == 0) {
+											perimetro++;
+										} else {
+											if (mat[i][j - 1] == 0) {
+												perimetro++;
+											}
+										}
+										// derecha
+										if (j == mat[0].length - 1) {
+											perimetro++;
+										} else {
+											if (mat[i][j + 1] == 0) {
+												perimetro++;
+											}
+										}
+									}
+								}
+							}
+							return perimetro;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<small>
+						<p>
+							Dada una matriz cualquiera, retornar la matriz acumulada. La matriz acumulada es el resultado de
+							ir sumando los elementos de la matriz de esta manera:
+						</p>
+						<p>Original</p>
+						<table>
+							<tr>
+								<td>5</td>
+								<td>8</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>8</td>
+								<td>10</td>
+							</tr>
+						</table>
+						<p>Resultado</p>
+						<table>
+							<tr>
+								<td>5</td>
+								<td>5 + 8</td>
+								<td>(5 + 8) + 1</td>
+							</tr>
+							<tr>
+								<td>(5 + 8 + 1) + 4</td>
+								<td>(5 + 8 + 1 + 4) + 8</td>
+								<td>(5 + 8 + 1 + 4 + 8) + 10</td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<td>5</td>
+								<td>13</td>
+								<td>14</td>
+							</tr>
+							<tr>
+								<td>18</td>
+								<td>26</td>
+								<td>36</td>
+							</tr>
+						</table>
+						<p>Firma: public static int[][] acumulada(int[][] mat)</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int[][] acumulada(int[][] mat) {
+							int[][] acum = new int[mat.length][mat[0].length];
+							int anterior = 0;
+							for (int i = 0; i < acum.length; i++) {
+								for (int j = 0; j < acum[0].length; j++) {
+									acum[i][j] = anterior + mat[i][j];
+									anterior = acum[i][j];
+								}
+							}
+							return acum;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Se tiene un tiro al blanco electrónico. Inicialmente, están todas las luces apagadas. Al disparar con
+							un láser y acertar, se enciende la respectiva luz y queda prendida. Se desea un programa que, a partir
+							de la matriz con la información de cuáles sensores están prendidos o apagados, calcule el puntaje. El
+							puntaje se otorga de la siguiente forma: cualquier sensor prendido del borde exterior vale 1 punto. Los
+							del reborde inmediatamente contiguo hacia el centro valen 2 cada uno; en el siguiente reborde vale 3
+							cada sensor prendido y así sucesivamente incrementando de a un punto.
+						</p>
+						<img data-src="img/PR3_EJ7.png"  width="40%" height="40%" style="background: none; align-items: center;">
+						
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>Ejemplo: en el tablero cuadrado de lado 5 del dibujo, se obtuvieron 21 puntos que corresponden 12
+							puntos por 12 sensores prendidos del borde exterior, 6 puntos por 3 sensores del 2do. reborde y 3
+							puntos por 1 sensor del 3er. reborde. Se recibe la matriz:
+						</p>
+						<table>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+						</table>
+						<p>Retorna 21 - Firma: public static int puntaje(int[][] mat)</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int puntaje(int[][] mat) {
+							int puntos = 0;
+							int valor = 1;
+							int iIni = 0;
+							int jIni = 0;
+							int iFin = mat.length - 1;
+							int jFin = mat.length - 1;
+							while (iIni != iFin) {
+								// recorro el borde
+								for (int i = jIni; i <= jFin; i++) {
+									if (mat[iIni][i] == 1) {
+										puntos += valor;
+									}
+									if (mat[iFin][i] == 1) {
+										puntos += valor;
+									}
+								}
+								for (int j = iIni + 1; j < iFin; j++) {
+									if (mat[j][iIni] == 1) {
+										puntos += valor;
+									}
+									if (mat[j][iFin] == 1) {
+										puntos += valor;
+									}
+								}
+								iIni++;
+								jIni++;
+								iFin--;
+								jFin--;
+								valor++;
+							}
+							if (mat[iFin][iFin] == 1) {
+								puntos += valor;
+							}
+							return puntos;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<small>
+						<p>
+							Una matriz es **reducida por renglones** si verifica ciertas condiciones que se definen a
+							continuación. Se llama **elemento de pivoteo** de una fila al primer elemento diferente de cero de esa
+							fila. Para ser reducida por renglones debe verificarse que cada columna que contiene un elemento de
+							pivoteo tiene todos los demás elementos de la columna iguales a cero y cada elemento de pivoteo es
+							igual a uno.
+						</p>
+						<p>
+							Se ingresan la cantidad de filas y de columnas. Luego viene una matriz de enteros de esa cantidad de filas y columnas.
+							La matriz es máximo 10 * 10. Indicar "SI" si la matriz es reducida por renglones y "NO" en otro caso.
+						</p>
+						<table>
+							<tr>
+								<td>3</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>3</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>-4</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+						</table>
+						<p>NO es reducida</p>
+						<table>
+							<tr>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>1</td>
+								<td>0</td>
+								<td>-3</td>
+							</tr>
+						</table>
+						<p>SI es reducida</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean reducidaPorRenglones(int[][] mat) {
+							boolean esReducida = true;
+							boolean pivoteoEncontrado = false;
+							for (int i = 0; i < mat.length && esReducida; i++) {
+								for (int j = 0; j < mat[0].length && esReducida && !pivoteoEncontrado; j++) {
+									//Si encuentro un elemento distinto de cero, aviso que encontre el elemento de pivoteo
+									if (mat[i][j] != 0) {
+										pivoteoEncontrado = true;
+										//Evalúo que el elemento de pivoteo sea distinto de 1 o que el resto de los elementos de la columna no sean 0
+										if (mat[i][j] != 1 || !columnasSonCeros(mat, j, i)) {
+											esReducida = false;
+										}
+									}
+								}
+								pivoteoEncontrado = false;
+							}
+							return esReducida;
+						}
+						//Método que se encarga de revisar que los elementos de la columna sean todos cero, excepto el elemento de pivoteo
+					
+						public static boolean columnasSonCeros(int[][] mat, int columna, int pivote) {
+							boolean resultado = true;
+							for (int i = 0; i < mat.length; i++) { //i representa la fila. La columna es fija
+								if (mat[i][columna] != 0 && i != pivote) {
+									resultado = false;
+								}
+							}
+							return resultado;
+						}
+					</code></pre>
+				</section>
 			</section>
 			<!-- FIN Matrices -->
 
