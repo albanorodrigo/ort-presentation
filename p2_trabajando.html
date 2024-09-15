@@ -16,16 +16,17 @@
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	<style>
-        table {
-            border-collapse: collapse;
-            margin: 20px;
-        }
-        td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+		table {
+			border-collapse: collapse;
+			margin: 20px;
+		}
+
+		td {
+			border: 1px solid black;
+			padding: 10px;
+			text-align: center;
+		}
+	</style>
 </head>
 
 <body>
@@ -147,8 +148,8 @@
 						<li><a href="#/7">PR1 - Introducción a JAVA y Codificaciones Básicas</a></li>
 						<li><a href="#/8">Arrays</a></li>
 						<li><a href="#/9">Matrices</a></li>
-						<!-- <li><a href="#/10">Usos de clases standard: String - Math</a></li>
-						<li><a href="#/11">Objetos (básico)</a></li>
+						<li><a href="#/10">Usos de clases standard: String - Math</a></li>
+						<!-- <li><a href="#/11">Objetos (básico)</a></li>
 						<li><a href="#/12">Relaciones entre clases</a></li>
 						<li><a href="#/13">ArrayList</a></li>
 						<li><a href="#/14">CRH, Diseño</a></li>
@@ -1443,8 +1444,10 @@
 
 					<small>
 						<p>
-							Dada una matriz y una posición en esa matriz (dada por la fila y la columna) indicar si el elemento
-							que se encuentra en esa posición está repetido o no en alguna de las diagonales que pasan por esa posición.
+							Dada una matriz y una posición en esa matriz (dada por la fila y la columna) indicar si el
+							elemento
+							que se encuentra en esa posición está repetido o no en alguna de las diagonales que pasan
+							por esa posición.
 							public static boolean repetidos(int[][] mat, int fila, int col)
 						</p>
 						<table>
@@ -1561,7 +1564,8 @@
 						<p>
 							Se recibe un mapa en una matriz rectangular de hasta 100 * 100. Representa a una única isla,
 							donde 1 representa tierra y 0 representa agua. Las posiciones de tierra están conectadas
-							horizontal/verticalmente. La isla está completamente rodeada de agua. Cada posición tiene lado 1.
+							horizontal/verticalmente. La isla está completamente rodeada de agua. Cada posición tiene
+							lado 1.
 							Determinar el perímetro de la isla.
 						</p>
 						<table>
@@ -1647,7 +1651,8 @@
 
 					<small>
 						<p>
-							Dada una matriz cualquiera, retornar la matriz acumulada. La matriz acumulada es el resultado de
+							Dada una matriz cualquiera, retornar la matriz acumulada. La matriz acumulada es el
+							resultado de
 							ir sumando los elementos de la matriz de esta manera:
 						</p>
 						<p>Original</p>
@@ -1713,23 +1718,31 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Se tiene un tiro al blanco electrónico. Inicialmente, están todas las luces apagadas. Al disparar con
-							un láser y acertar, se enciende la respectiva luz y queda prendida. Se desea un programa que, a partir
-							de la matriz con la información de cuáles sensores están prendidos o apagados, calcule el puntaje. El
-							puntaje se otorga de la siguiente forma: cualquier sensor prendido del borde exterior vale 1 punto. Los
-							del reborde inmediatamente contiguo hacia el centro valen 2 cada uno; en el siguiente reborde vale 3
+							Se tiene un tiro al blanco electrónico. Inicialmente, están todas las luces apagadas. Al
+							disparar con
+							un láser y acertar, se enciende la respectiva luz y queda prendida. Se desea un programa
+							que, a partir
+							de la matriz con la información de cuáles sensores están prendidos o apagados, calcule el
+							puntaje. El
+							puntaje se otorga de la siguiente forma: cualquier sensor prendido del borde exterior vale 1
+							punto. Los
+							del reborde inmediatamente contiguo hacia el centro valen 2 cada uno; en el siguiente
+							reborde vale 3
 							cada sensor prendido y así sucesivamente incrementando de a un punto.
 						</p>
-						<img data-src="img/PR3_EJ7.png"  width="40%" height="40%" style="background: none; align-items: center;">
-						
+						<img data-src="img/PR3_EJ7.png" width="40%" height="40%"
+							style="background: none; align-items: center;">
+
 					</small>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
-						<p>Ejemplo: en el tablero cuadrado de lado 5 del dibujo, se obtuvieron 21 puntos que corresponden 12
-							puntos por 12 sensores prendidos del borde exterior, 6 puntos por 3 sensores del 2do. reborde y 3
+						<p>Ejemplo: en el tablero cuadrado de lado 5 del dibujo, se obtuvieron 21 puntos que
+							corresponden 12
+							puntos por 12 sensores prendidos del borde exterior, 6 puntos por 3 sensores del 2do.
+							reborde y 3
 							puntos por 1 sensor del 3er. reborde. Se recibe la matriz:
 						</p>
 						<table>
@@ -1818,14 +1831,19 @@
 					<small>
 						<p>
 							Una matriz es **reducida por renglones** si verifica ciertas condiciones que se definen a
-							continuación. Se llama **elemento de pivoteo** de una fila al primer elemento diferente de cero de esa
-							fila. Para ser reducida por renglones debe verificarse que cada columna que contiene un elemento de
-							pivoteo tiene todos los demás elementos de la columna iguales a cero y cada elemento de pivoteo es
+							continuación. Se llama **elemento de pivoteo** de una fila al primer elemento diferente de
+							cero de esa
+							fila. Para ser reducida por renglones debe verificarse que cada columna que contiene un
+							elemento de
+							pivoteo tiene todos los demás elementos de la columna iguales a cero y cada elemento de
+							pivoteo es
 							igual a uno.
 						</p>
 						<p>
-							Se ingresan la cantidad de filas y de columnas. Luego viene una matriz de enteros de esa cantidad de filas y columnas.
-							La matriz es máximo 10 * 10. Indicar "SI" si la matriz es reducida por renglones y "NO" en otro caso.
+							Se ingresan la cantidad de filas y de columnas. Luego viene una matriz de enteros de esa
+							cantidad de filas y columnas.
+							La matriz es máximo 10 * 10. Indicar "SI" si la matriz es reducida por renglones y "NO" en
+							otro caso.
 						</p>
 						<table>
 							<tr>
@@ -1913,6 +1931,223 @@
 				</section>
 			</section>
 			<!-- FIN Matrices -->
+
+			<!-- String y Math -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 4</h1>
+					<h2>String y Math</h2>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Escribir el código necesario que ejemplifique el uso de los siguientes métodos de String:
+							equals, compareTo, indexOf, length, toUpperCase, toLowerCase, equalsIgnoreCase, trim.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static void ejercicio1() {
+							String nombre = "Juan Carlos Alvarez";
+							String otro = "JUAN Carlos Alvarez";
+					
+							System.out.println("equals() da false porque están escritos diferente: " + nombre.equals(otro));
+							System.out.println("equalsIgnoreCase() da true porque ignora esas diferencias: " + nombre.equalsIgnoreCase(otro));
+							System.out.println("compareTo() da positivo porque U está antes que u: " + nombre.compareTo(otro));
+							System.out.println("Convertido a mayúsculas: " + nombre.toUpperCase());
+							System.out.println("Convertido a minúsculas: " + nombre.toLowerCase());
+					
+							System.out.println("La posición de la primera a es: " + nombre.indexOf("a"));
+							System.out.println("La última a está en la posición: " + nombre.lastIndexOf("a"));
+					
+							System.out.println("La cantidad de caracteres del nombre es: " + nombre.length());
+					
+							nombre = nombre + " ";
+							System.out.println("Agregando 5 espacios al final la cantidad pasa a ser: " + nombre.length());
+					
+							System.out.println("Si utilizamos trim() siguen siendo: " + nombre.trim().length());
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Escribir el código necesario para mostrar el uso de los siguientes métodos de Math: max,
+							min, abs, pow, sqrt. Investigar cuáles otros métodos están disponibles.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static void ejercicio2() {
+							int a = 25;
+							double b = 26.9;
+							int c = 10;
+					
+							System.out.println("Las variables valen: a= " + a + " b=" + b + " c=" + c);
+					
+							System.out.println("El máximo entre a y c es: " + Math.max(a, c));
+							System.out.println("El mínimo entre a y b es: " + Math.min(a, b));
+					
+							System.out.println("El valor absoluto de c-a es: " + Math.abs(c - a));
+					
+							System.out.println("c elevado al cubo da: " + Math.pow(c, 3));
+							System.out.println("La raíz cuadrada de a es: " + Math.sqrt(a));
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Leer un string y un carácter e indicar la cantidad de veces que aparece ese carácter en el string.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static void ejercicio3() {
+							Scanner in = new Scanner(System.in);
+							System.out.print("Ingrese la palabra: ");
+							String palabra = in.nextLine();
+					
+							System.out.print("Ingrese el carácter: ");
+							String letra = in.nextLine();
+					
+							int cantidad = 0;
+							for (int i = 0; i < palabra.length(); i++) {
+								if (letra.equals("" + palabra.charAt(i))) {
+									cantidad++;
+								}
+							}
+							System.out.println("El carácter está " + cantidad + " veces en la palabra");
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Implementar un método propio que comprima un string, esto es que elimine los espacios en blanco.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static void ejercicio4() {
+							Scanner in = new Scanner(System.in);
+							System.out.print("Ingrese una frase: ");
+							String frase = in.nextLine();
+					
+							String comprimida = "";
+					
+							for (int i = 0; i < frase.length(); i++) {
+								if (frase.charAt(i) != ' ') {
+									comprimida += frase.charAt(i);
+								}
+							}
+							System.out.println("Frase comprimida: " + comprimida);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Dado un string de largo máximo 100, que contiene letras en mayúsculas, indicar la secuencia más larga de letras "A" consecutivas. Ejemplo: ABAABCA debe retornar 2.
+						</p>
+						<p><b>public static int secuencia(String frase)</b></p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int ejercicio5(String frase) {
+							int cantidad = 0;
+							int mayor = 0;
+							boolean enSecuencia = false;
+					
+							for (int i = 0; i < frase.length(); i++) {
+								if (frase.charAt(i) == 'A') {
+									if (enSecuencia) {
+										cantidad++;
+									} else {
+										enSecuencia = true;
+										cantidad = 1;
+									}
+								} else {
+									if (cantidad > mayor) {
+										mayor = cantidad;
+									}
+									enSecuencia = false;
+									cantidad = 0;
+								}
+							}
+							if (cantidad > mayor) {
+								mayor = cantidad;
+							}
+							return mayor;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Se reciben dos strings en minúsculas. El segundo contiene las mismas letras del primero desordenadas, pero se agregó una letra más en algún lugar. Identificar cuál letra es
+						</p>
+						<p>Ejemplo hola y lboha, debe retornar b.</p>
+						<p><b>public static String agregada(String primera, String segunda)</b></p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static String ejercicio6(String primera, String segunda) {
+							for (int i = 0; i < primera.length(); i++) {
+								// cambio en el segundo string la letra del primero por un espacio
+								boolean cambie = false;
+								for (int j = 0; j < segunda.length() && !cambie; j++) {
+									if (primera.charAt(i) == segunda.charAt(j)) {
+										segunda = segunda.substring(0, j) + " " + segunda.substring(j + 1);
+										cambie = true;
+									}
+								}
+							}
+							// En el segundo string solo queda la letra buscada
+							String letra = "";
+							for (int i = 0; i < segunda.length() && letra.length() == 0; i++) {
+								if (segunda.charAt(i) != ' ') {
+									letra = "" + segunda.charAt(i);
+								}
+							}
+							return letra;
+						}
+					</code></pre>
+				</section>
+			</section>
+			<!-- FIN String y Math -->
 
 			<!-- FIN -->
 			<section>
