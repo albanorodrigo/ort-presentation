@@ -149,14 +149,15 @@
 						<li><a href="#/8">Arrays</a></li>
 						<li><a href="#/9">Matrices</a></li>
 						<li><a href="#/10">Usos de clases standard: String - Math</a></li>
-						<!-- <li><a href="#/11">Objetos (básico)</a></li>
-						<li><a href="#/12">Relaciones entre clases</a></li>
-						<li><a href="#/13">ArrayList</a></li>
-						<li><a href="#/14">CRH, Diseño</a></li>
-						<li><a href="#/15">Interfaz gráfica</a></li>
-						<li><a href="#/16">Persistencia</a></li>
-						<li><a href="#/17">Archivos de texto</a></li>
-						<li><a href="#/18">Excepciones</a></li> -->
+						<li><a href="#/11">Ejercicios de Parcial 1</a></li>
+						<li><a href="#/12">Objetos (básico)</a></li>
+						<!-- <li><a href="#/13">Relaciones entre clases</a></li>
+						<li><a href="#/14">ArrayList</a></li>
+						<li><a href="#/15">CRH, Diseño</a></li>
+						<li><a href="#/16">Interfaz gráfica</a></li>
+						<li><a href="#/17">Persistencia</a></li>
+						<li><a href="#/18">Archivos de texto</a></li>
+						<li><a href="#/19">Excepciones</a></li> -->
 					</ul>
 				</small>
 			</section>
@@ -2012,7 +2013,8 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Leer un string y un carácter e indicar la cantidad de veces que aparece ese carácter en el string.
+							Leer un string y un carácter e indicar la cantidad de veces que aparece ese carácter en el
+							string.
 						</p>
 					</small>
 				</section>
@@ -2043,7 +2045,8 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Implementar un método propio que comprima un string, esto es que elimine los espacios en blanco.
+							Implementar un método propio que comprima un string, esto es que elimine los espacios en
+							blanco.
 						</p>
 					</small>
 				</section>
@@ -2072,7 +2075,8 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Dado un string de largo máximo 100, que contiene letras en mayúsculas, indicar la secuencia más larga de letras "A" consecutivas. Ejemplo: ABAABCA debe retornar 2.
+							Dado un string de largo máximo 100, que contiene letras en mayúsculas, indicar la secuencia
+							más larga de letras "A" consecutivas. Ejemplo: ABAABCA debe retornar 2.
 						</p>
 						<p><b>public static int secuencia(String frase)</b></p>
 					</small>
@@ -2114,7 +2118,8 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							Se reciben dos strings en minúsculas. El segundo contiene las mismas letras del primero desordenadas, pero se agregó una letra más en algún lugar. Identificar cuál letra es
+							Se reciben dos strings en minúsculas. El segundo contiene las mismas letras del primero
+							desordenadas, pero se agregó una letra más en algún lugar. Identificar cuál letra es
 						</p>
 						<p>Ejemplo hola y lboha, debe retornar b.</p>
 						<p><b>public static String agregada(String primera, String segunda)</b></p>
@@ -2149,7 +2154,300 @@
 			</section>
 			<!-- FIN String y Math -->
 
+			<!-- Ejercicios de Parcial 1-->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h2>Ejercicios de Parcial 1</h2>
+					<img data-src="img/test.png" style="width: 200px; height: 200px;">
+				</section>
+				<section>
+
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Diciembre 2022 Matutino - Ej1</h4>
+					<p><small>
+							Una matriz es "ordenada" si todas las filas están en orden estrictamente creciente (de
+							izquierda
+							a derecha) y todas las columnas (de arriba a abajo) están en orden estrictamente creciente.
+							Dada
+							una matriz, retornar true si es ordenada
+						</small></p>
+					<p><small>
+							<b>Firma: public static boolean proceso (int[][] mat)</b>
+							|| Ej Matriz ordenada
+						</small>
+
+					</p>
+					<table>
+						<tr>
+							<td>1</td>
+							<td>4</td>
+							<td>7</td>
+							<td>11</td>
+							<td>15</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>5</td>
+							<td>8</td>
+							<td>12</td>
+							<td>19</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>6</td>
+							<td>9</td>
+							<td>16</td>
+							<td>22</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>13</td>
+							<td>14</td>
+							<td>17</td>
+							<td>24</td>
+						</tr>
+
+					</table>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean proceso(int[][] mat) {
+							boolean todoOk = true;
+							for (int i = 0; i < mat.length && todoOk; i++) {
+								// reviso fila
+								for (int j = 1; j < mat[0].length && todoOk; j++) {
+									if (mat[i][j] <= mat[i][j - 1]) {
+										todoOk = false;
+									}
+								}
+							}
+							for (int j = 0; j < mat[0].length && todoOk; j++) {
+								// reviso columnas
+								for (int i = 1; i < mat.length && todoOk; i++) {
+									if (mat[i][j] <= mat[i - 1][j]) {
+										todoOk = false;
+									}
+								}
+							}
+							return todoOk;
+						}	
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Julio 2023 Matutino - Ej1</h4>
+					<small>
+						<p>
+							En un "minibingo", el participante tiene un cartón rectangular con un número positivo
+							diferente en cada
+							casilla. De un bolillero se va sacando y "cantando" de a uno cada número y el jugador lo va
+							"tachando" si lo
+							tiene. Apenas se cante un número con el que completa una fila, gana. Si al terminarse los
+							números no
+							completó fila, pierde.
+						</p>
+						<p>
+							Implementar en Java un método que recibe el cartón (se asume mínimo de 3* 5) y un array con
+							todos los
+							números que salieron en el orden que fueron apareciendo y retorna con cuál número completó
+							por primera
+							vez una fila o -1 si no completó ninguna. No hay inconsistencias.
+						</p>
+						<p><b>Firma: public static int bingo (int[][] carton, int[] numeros)</b></p>
+					</small>
+					<table>
+						<tr>
+							<td>14</td>
+							<td>34</td>
+							<td>18</td>
+							<td>3</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>23</td>
+							<td>25</td>
+							<td>2</td>
+							<td>6</td>
+						</tr>
+						<tr>
+							<td>42</td>
+							<td>27</td>
+							<td>22</td>
+							<td>35</td>
+							<td>74</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<small>
+						<p>Si el array de números es: [9, 50, 6, 3, 2, 35, 23, 18, 25, 84,14, 34,1,12] debe retornar 25.
+						</p>
+						<p>Si el array de números es: [84, 36, 25, 2] retorna -1</p>
+					</small>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int bingo(int[][] carton, int[] numeros) {
+							int pos = 0;
+							int retorno = -1;
+							int[] filas = new int[carton.length];
+							boolean fila = false;
+							while (pos < numeros.length && !fila) {
+								// busco el numero en el carton
+								for (int i = 0; i < carton.length && !fila; i++) {
+									for (int j = 0; j < carton[0].length && !fila; j++) {
+										if (carton[i][j] == numeros[pos]) { // encontre numero en el carton
+											filas[i]++;
+											if (filas[i] == carton[0].length) { // si complete fila
+												fila = true;
+												retorno = numeros[pos];
+											}
+										}
+									}
+								}
+								pos++;
+							}
+							return retorno;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Diciembre 2022 Nocturno - Ej1</h4>
+					<small>
+						<p>
+							Una matriz es "especial" si todas las diagonales desde arriba a la izquierda a abajo derecha
+							tienen el mismo
+							elemento. Dada una matriz, retornar true si es especial.
+						</p>
+						<p><b>Firma: public static boolean especial (int[][] mat)</b></p>
+						<p>Ej matriz especial:</p>
+					</small>
+					<table>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>5</td>
+							<td>1</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean especial(int[][] mat) {
+							boolean especial = true;
+							// Revisar diagonales comenzando en la primera fila
+							for (int j = 0; j < mat[0].length && especial; j++) {
+								int elem = mat[0][j];
+								int desp = j + 1;
+								for (int i = 1; i < mat.length && especial; i++) {
+									if (mat[i][desp] != elem) {
+										especial = false;
+									}
+									desp++;
+								}
+							}
+							// Revisar diagonales comenzando en la primera columna (sin repetir la diagonal de (0,0))
+							for (int j = 1; j < mat.length && especial; j++) {
+								int elem = mat[j][0];
+								int desp = j + 1;
+								for (int i = j + 1; i < mat.length && especial; i++) {
+									if (mat[i][desp] != elem) {
+										especial = false;
+									}
+									desp++;
+								}
+							}
+							return especial;
+						}
+					</code></pre>
+				</section>
+			</section>
 			<!-- FIN -->
+
+			<!-- Objetos (Basico) -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 5</h1>
+					<h2>Objetos (Básico)</h2>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Crear la clase Funcionario con atributos nombre y sueldo. Incluir métodos de acceso y
+							modificación.
+							Agregar dos métodos de clase para prueba:
+						<ul>
+							<li>ejemplo1: crea un funcionario con datos a ingresar por el operador y lo muestra</li>
+							<li>ejemplo2: crea dos funcionarios (usando el ejemplo1) e indica además cuál gana más.</li>
+						</ul>
+						<p>Agregar teléfono en la clase Funcionario. Hacer que el método toString() lo incluya. </p>
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Crear la clase Cliente. Cada cliente tiene nombre, teléfono y mail (que debe ser de gmail o
+							yahoo).
+							La única validación a realizar es que el mail tenga formato correcto. Los formatos aceptados
+							son:
+							usuario@gmail.com o usuario@yahoo.com. “usuario” no puede contener @ ni espacios. No se
+							solicita
+							validar que el email exista efectivamente.
+						<p>Crear la clase de Prueba, crear dos clientes y mostrar sus datos</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Crear la clase Socio con variables de instancia: nombre, número y variable de Clase:
+						</p>
+						<ul>
+							<li>ProximoNumero</li>
+							<li>Agregar los métodos de acceso y modificación.</li>
+							<li>Inicializar en 0 el próximo número</li>
+						</ul>
+						<p>Al crear un socio, incrementar automáticamente el próximo número y asignarle el número correspondiente. Ejemplificar creando dos socios y mostrando todos sus datos.
+						</p>
+					</small>
+				</section>
+			</section>
+			<!-- FIN Objetos Basico-->
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
 				<img data-src="img/programadora.png" width="50%" height="50%"
