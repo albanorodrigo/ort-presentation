@@ -151,8 +151,8 @@
 						<li><a href="#/10">Usos de clases standard: String - Math</a></li>
 						<li><a href="#/11">Ejercicios de Parcial 1</a></li>
 						<li><a href="#/12">Objetos (básico)</a></li>
-						<!-- <li><a href="#/13">Relaciones entre clases</a></li>
-						<li><a href="#/14">ArrayList</a></li>
+						<li><a href="#/13">Relaciones entre clases</a></li>
+						<!-- <li><a href="#/14">ArrayList</a></li>
 						<li><a href="#/15">CRH, Diseño</a></li>
 						<li><a href="#/16">Interfaz gráfica</a></li>
 						<li><a href="#/17">Persistencia</a></li>
@@ -2447,6 +2447,573 @@
 					</small>
 				</section>
 			</section>
+
+			<!-- Relaciones entre Clases -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 6</h1>
+					<h2>Relaciones entre Clases</h2>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Dado el siguiente código:
+						</p>
+						<pre><code code class="hljs java" data-trim data-noescape>
+							public class Cliente{
+								private String nombre;
+								private String ci;
+							}
+							
+							public class Compra{
+								private Cliente comprador;
+								private double monto;
+								public Cliente getComprador(){
+									return comprador;
+								}
+							}
+						</code></pre>
+						<ul>
+							<li>Identificar qué tipo de relación existe entre Compra y Cliente</li>
+							<li>Incluyendo solamente la información dada, representar el diagrama de clases</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							En el práctico 5 se crearon las clases Cliente y Plato. Definir la clase Venta que corresponde a un cliente, por un cierto plato y la cantidad de unidades vendidas
+						</p>
+						<p>
+							Ejemplificar creando un cliente, un plato y dos ventas. Imprimir todos los datos
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						// Clase Cliente
+						public class Cliente {
+
+							private String nombre;
+							private String telefono;
+							private String mail;
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							public String getTelefono() {
+								return telefono;
+							}
+						
+							public void setTelefono(String unTelefono) {
+								telefono = unTelefono;
+							}
+						
+							public String getMail() {
+								return mail;
+							}
+						
+							public void setMail(String unMail) {
+								mail = unMail;
+							}
+						
+							public Cliente(String unNombre, String unTelefono, String unMail) {
+								this.setNombre(unNombre);
+								this.setTelefono(unTelefono);
+								this.setMail(unMail);
+							}
+						
+							@Override
+							public String toString() {
+								return "Datos del cliente:\nNombre: " + this.getNombre()
+										+ "\nTeléfono: " + this.getTelefono()
+										+ "\nMail: " + this.getMail()
+										+ "\n------------------------------\n";
+							}
+						}
+						// Clase Plato
+						public class Plato {
+							private String codigo;
+							private String descripcion;
+							private int costo;
+							private boolean aptoCeliacos;
+						
+							public String getCodigo() {
+								return codigo;
+							}
+						
+							public void setCodigo(String unCodigo) {
+								codigo = unCodigo;
+							}
+						
+							public String getDescripcion() {
+								return descripcion;
+							}
+						
+							public void setDescripcion(String unaDescripcion) {
+								descripcion = unaDescripcion;
+							}
+						
+							public int getCosto() {
+								return costo;
+							}
+						
+							public void setCosto(int unCosto) {
+								costo = unCosto;
+							}
+						
+							public boolean getAptoCeliacos() {
+								return aptoCeliacos;
+							}
+						
+							public void setAptoCeliacos(boolean unAptoCeliacos) {
+								aptoCeliacos = unAptoCeliacos;
+							}
+						
+							public Plato(String codigo, String descripcion, int costo, boolean apto) {
+								this.setCodigo(codigo);
+								this.setDescripcion(descripcion);
+								this.setCosto(costo);
+								this.setAptoCeliacos(apto);
+							}
+						
+							@Override
+							public String toString() {
+								String apto = "es apto para celíacos";
+								if (!this.getAptoCeliacos()) {
+									apto = "NO " + apto;
+								}
+								return "Código: " + this.getCodigo()
+										+ "\nDescripción: " + this.getDescripcion()
+										+ "\nCosto: " + this.getCosto()
+										+ "\n" + apto;
+						
+							}
+						}
+
+						// Clase Venta
+						public class Venta {
+							private Cliente cliente;
+							private Plato plato;
+							private int cantidad;
+						
+							public Cliente getCliente() {
+								return cliente;
+							}
+						
+							public void setCliente(Cliente unCliente) {
+								cliente = unCliente;
+							}
+						
+							public Plato getPlato() {
+								return plato;
+							}
+						
+							public void setPlato(Plato unPlato) {
+								plato = unPlato;
+							}
+						
+							public int getCantidad() {
+								return cantidad;
+							}
+						
+							public void setCantidad(int unaCantidad) {
+								cantidad = unaCantidad;
+							}
+						
+							public Venta(Cliente unCliente, Plato unPlato, int unaCantidad) {
+								this.setCliente(unCliente);
+								this.setPlato(unPlato);
+								this.setCantidad(unaCantidad);
+							}
+						
+							@Override
+							public String toString() {
+								return "Venta de " + this.getCantidad() + " de unidades del plato "
+										+ this.getPlato() + " compradas por " + this.getCliente();
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Dada la clase Edificio del práctico 5, agregarle el administrador, que es de tipo Persona
+						</p>
+						<p>
+							Ejemplificar creando dos edificios que tienen un mismo Administrador y mostrando todos los datos
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						// Persona
+						public class Persona {
+							private String nombre;
+							private String direccion;
+							private String telefono;
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							public String getDireccion() {
+								return direccion;
+							}
+						
+							public void setDireccion(String unaDireccion) {
+								direccion = unaDireccion;
+							}
+						
+							public String getTelefono() {
+								return telefono;
+							}
+						
+							public void setTelefono(String unTelefono) {
+								telefono = unTelefono;
+							}
+						
+							public Persona(String unNombre, String unaDireccion, String unTelefono) {
+								this.setNombre(unNombre);
+								this.setDireccion(unaDireccion);
+								this.setTelefono(unTelefono);
+							}
+						
+							@Override
+							public String toString() {
+								return "Nombre: " + this.getNombre();
+							}
+						}
+						// Edificio
+						public class Edificio {
+							private String nombre;
+							private int[][] costo;
+							private Persona administrador;
+						
+							public Persona getAdministrador() {
+								return administrador;
+							}
+						
+							public void setAdministrador(Persona unAdministrador) {
+								administrador = unAdministrador;
+							}
+						
+							public Edificio(String unNombre, Persona unAdministrador) {
+								this.setNombre(unNombre);
+								this.setAdministrador(unAdministrador);
+								costo = new int[10][4];
+							}
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							@Override
+							public String toString() {
+								String aptos = "";
+								for (int i = 0; i < costo.length; i++) {
+									aptos += "\nPiso: " + (i + 1);
+									for (int j = 0; j < costo[0].length; j++) {
+										aptos += " " + costo[i][j];
+									}
+								}
+								return "Edificio: " + this.getNombre()
+										+ "\nAdministrador: " + this.getAdministrador()
+										+ "\nCosto de Apartamentos: "
+										+ aptos;
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							En el práctico 5 se definió la clase Funcionario. Extenderla para incluir mensuales y jornaleros (el
+							cálculo del sueldo es diferente: el mensual tiene un valor fijo por mes, el jornalero tiene un valor diario
+							y se le paga según la cantidad de días trabajados ese mes).
+						</p>
+						<p>Agregar las clases, métodos y variables necesarias. Probarla</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						// Funcionario
+						public abstract class Funcionario {
+
+							private String nombre;
+							private String telefono;
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							public String getTelefono() {
+								return telefono;
+							}
+						
+							public void setTelefono(String unTelefono) {
+								telefono = unTelefono;
+							}
+						
+							public Funcionario() {
+								this.setNombre("sin definir");
+								this.setTelefono("sin definir");
+							}
+						
+							public abstract int sueldo() {
+								
+							};
+							
+							@Override
+							public String toString() {
+								return "Nombre: " + this.getNombre() + " Teléfono: " + this.getTelefono();
+							}
+						}
+
+						// Mensual
+						public class Mensual extends Funcionario {
+							private int sueldoMensual;
+						
+							public int getSueldoMensual() {
+								return sueldoMensual;
+							}
+						
+							public void setSueldoMensual(int unSueldoMensual) {
+								sueldoMensual = unSueldoMensual;
+							}
+						
+							public int sueldo() {
+								return this.getSueldoMensual();
+							}
+						
+							public Mensual(String unNombre, String unTelefono, int unSueldoMensual) {
+								this.setNombre(unNombre);
+								this.setTelefono(unTelefono);
+								this.setSueldoMensual(unSueldoMensual);
+							}
+						
+							@Override
+							public String toString() {
+								return super.toString() + " Sueldo Mensual: " + this.getSueldoMensual();
+							}
+						}
+						// Jornalero
+						public class Jornalero extends Funcionario {
+
+							private int valorDiario;
+							private int diasTrabajados;
+						
+							public int getValorDiario() {
+								return valorDiario;
+							}
+						
+							public void setValorDiario(int unValorDiario) {
+								valorDiario = unValorDiario;
+							}
+						
+							public int getDiasTrabajados() {
+								return diasTrabajados;
+							}
+						
+							public void setDiasTrabajados(int unosDiasTrabajados) {
+								diasTrabajados = unosDiasTrabajados;
+							}
+						
+							public Jornalero(String unNombre, String unTelefono, int unValorDiario, int unosDiasTrabajados) {
+								this.setNombre(unNombre);
+								this.setTelefono(unTelefono);
+								this.setValorDiario(unValorDiario);
+								this.setDiasTrabajados(unosDiasTrabajados);
+							}
+						
+							public int sueldo() {
+								return this.getValorDiario() * this.getDiasTrabajados();
+							}
+						
+							@Override
+							public String toString() {
+								return super.toString() + " Valor Diario: " + this.getValorDiario()
+										+ " Días " + this.getDiasTrabajados()
+										+ " Sueldo: " + this.sueldo();
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							A partir de la clase "Queja" del práctico 5, definir 2 subclases: "Presencial" y "Telefónica". La queja
+							presencial tiene como atributos el texto con la documentación presentada y la telefónica tiene la
+							duración en minutos de la comunicación
+						</p>
+						<p>Incluir los métodos de impresión por defecto para que las quejas presenciales y telefónicas se muestren como una queja más la información particular. </p>
+						<p>Experimentar además con los constructores</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						// Queja
+						public class Queja {
+
+							private int numero;
+							private String texto;
+							private String direccion;
+							private String telefono;
+							private static int ProximoNumero;
+						
+							public int getNumero() {
+								return numero;
+							}
+						
+							public void setNumero(int unNumero) {
+								numero = unNumero;
+							}
+						
+							public String getTexto() {
+								return texto;
+							}
+						
+							public void setTexto(String unTexto) {
+								texto = unTexto;
+							}
+						
+							public String getDireccion() {
+								return direccion;
+							}
+						
+							public void setDireccion(String unaDireccion) {
+								direccion = unaDireccion;
+							}
+						
+							public String getTelefono() {
+								return telefono;
+							}
+						
+							public void setTelefono(String unTelefono) {
+								telefono = unTelefono;
+							}
+						
+							public static int getProximoNumero() {
+								return ProximoNumero;
+							}
+						
+							public static void setProximoNumero(int unProximoNumero) {
+								ProximoNumero = unProximoNumero;
+							}
+						
+							public Queja() {
+								Queja.setProximoNumero(Queja.getProximoNumero() + 1);
+								this.setNumero(Queja.getProximoNumero());
+							}
+						
+							public Queja(String unTexto, String unaDireccion, String unTelefono) {
+								Queja.setProximoNumero(Queja.getProximoNumero() + 1);
+								this.setNumero(Queja.getProximoNumero());
+								this.setTexto(unTexto);
+								this.setDireccion(unaDireccion);
+								this.setTelefono(unTelefono);
+							}
+						
+							@Override
+							public String toString() {
+								return "Queja con texto: " + this.getTexto()
+										+ "\nOcurrida en: " + this.getDireccion()
+										+ "\nTeléfono del denunciante: " + this.getTelefono()
+										+ "\nNúmero de queja: " + this.getNumero();
+							}
+						}
+						// Presencial
+						public class Presencial extends Queja {
+
+							private String documentacionPresentada;
+						
+							public String getDocumentacionPresentada() {
+								return documentacionPresentada;
+							}
+						
+							public void setDocumentacionPresentada(String unaDocumentacionPresentada) {
+								documentacionPresentada = unaDocumentacionPresentada;
+							}
+						
+							public Presencial(String unTexto, String unaDireccion, String unTelefono, String documentacion) {
+								super(unTexto, unaDireccion, unTelefono);
+								this.setDocumentacionPresentada(documentacion);
+							}
+						
+							@Override
+							public String toString() {
+								return super.toString() + "\nDocumentacion presentada: "
+										+ this.getDocumentacionPresentada() + "\n";
+							}
+						}
+						// Telefonica
+						public class Telefonica extends Queja {
+
+							private int duracionMinutos;
+						
+							public int getDuracionMinutos() {
+								return duracionMinutos;
+							}
+						
+							public void setDuracionMinutos(int unaDuracionMinutos) {
+								duracionMinutos = unaDuracionMinutos;
+							}
+						
+							public Telefonica(String unTexto, String unaDireccion, String unTelefono, int unaDuracion) {
+								super(unTexto, unaDireccion, unTelefono);
+								this.setDuracionMinutos(unaDuracion);
+							}
+						
+							@Override
+							public String toString() {
+								return super.toString() + "\nDuración en minutos: "
+										+ this.getDuracionMinutos() + "\n";
+							}
+						}
+					</code></pre>
+				</section>
+			</section>
+			<!-- FIN Relaciones entre Clases -->
+
 			<!-- FIN Objetos Basico-->
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
