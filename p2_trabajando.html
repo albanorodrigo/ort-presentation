@@ -152,8 +152,8 @@
 						<li><a href="#/11">Ejercicios de Parcial 1</a></li>
 						<li><a href="#/12">Objetos (básico)</a></li>
 						<li><a href="#/13">Relaciones entre clases</a></li>
-						<!-- <li><a href="#/14">ArrayList</a></li>
-						<li><a href="#/15">CRH, Diseño</a></li>
+						<li><a href="#/14">ArrayList</a></li>
+						<!-- <li><a href="#/15">CRH, Diseño</a></li>
 						<li><a href="#/16">Interfaz gráfica</a></li>
 						<li><a href="#/17">Persistencia</a></li>
 						<li><a href="#/18">Archivos de texto</a></li>
@@ -2442,11 +2442,13 @@
 							<li>Agregar los métodos de acceso y modificación.</li>
 							<li>Inicializar en 0 el próximo número</li>
 						</ul>
-						<p>Al crear un socio, incrementar automáticamente el próximo número y asignarle el número correspondiente. Ejemplificar creando dos socios y mostrando todos sus datos.
+						<p>Al crear un socio, incrementar automáticamente el próximo número y asignarle el número
+							correspondiente. Ejemplificar creando dos socios y mostrando todos sus datos.
 						</p>
 					</small>
 				</section>
 			</section>
+			<!-- FIN Objetos Basico-->
 
 			<!-- Relaciones entre Clases -->
 			<section>
@@ -2489,7 +2491,8 @@
 						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							En el práctico 5 se crearon las clases Cliente y Plato. Definir la clase Venta que corresponde a un cliente, por un cierto plato y la cantidad de unidades vendidas
+							En el práctico 5 se crearon las clases Cliente y Plato. Definir la clase Venta que
+							corresponde a un cliente, por un cierto plato y la cantidad de unidades vendidas
 						</p>
 						<p>
 							Ejemplificar creando un cliente, un plato y dos ventas. Imprimir todos los datos
@@ -2658,7 +2661,8 @@
 							Dada la clase Edificio del práctico 5, agregarle el administrador, que es de tipo Persona
 						</p>
 						<p>
-							Ejemplificar creando dos edificios que tienen un mismo Administrador y mostrando todos los datos
+							Ejemplificar creando dos edificios que tienen un mismo Administrador y mostrando todos los
+							datos
 						</p>
 					</small>
 				</section>
@@ -2757,8 +2761,10 @@
 						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							En el práctico 5 se definió la clase Funcionario. Extenderla para incluir mensuales y jornaleros (el
-							cálculo del sueldo es diferente: el mensual tiene un valor fijo por mes, el jornalero tiene un valor diario
+							En el práctico 5 se definió la clase Funcionario. Extenderla para incluir mensuales y
+							jornaleros (el
+							cálculo del sueldo es diferente: el mensual tiene un valor fijo por mes, el jornalero tiene
+							un valor diario
 							y se le paga según la cantidad de días trabajados ese mes).
 						</p>
 						<p>Agregar las clases, métodos y variables necesarias. Probarla</p>
@@ -2879,11 +2885,14 @@
 						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<small>
 						<p>
-							A partir de la clase "Queja" del práctico 5, definir 2 subclases: "Presencial" y "Telefónica". La queja
-							presencial tiene como atributos el texto con la documentación presentada y la telefónica tiene la
+							A partir de la clase "Queja" del práctico 5, definir 2 subclases: "Presencial" y
+							"Telefónica". La queja
+							presencial tiene como atributos el texto con la documentación presentada y la telefónica
+							tiene la
 							duración en minutos de la comunicación
 						</p>
-						<p>Incluir los métodos de impresión por defecto para que las quejas presenciales y telefónicas se muestren como una queja más la información particular. </p>
+						<p>Incluir los métodos de impresión por defecto para que las quejas presenciales y telefónicas
+							se muestren como una queja más la información particular. </p>
 						<p>Experimentar además con los constructores</p>
 					</small>
 				</section>
@@ -3014,7 +3023,385 @@
 			</section>
 			<!-- FIN Relaciones entre Clases -->
 
-			<!-- FIN Objetos Basico-->
+			<!-- ArrayList -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 7</h1>
+					<h2>ArrayList</h2>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Definir un ArrayList que contendrá Quejas (String). Agregar varias quejas.
+							Ejemplificar listando todas las quejas, borrar la primera, verificar si está vacía la lista
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public class Queja {
+
+							private String texto;
+						
+							public String getTexto() {
+								return texto;
+							}
+						
+							public void setTexto(String unTexto) {
+								texto = unTexto;
+							}
+						
+							public Queja(String unTexto) {
+								this.setTexto(unTexto);
+							}
+						
+							@Override
+							public String toString() {
+								return "Queja: " + this.getTexto();
+							}
+						}
+						// main
+						ArrayList<Queja> listaQuejas = new ArrayList<>();
+
+						listaQuejas.add(new Queja("El horario del almacén es incómodo"));
+						listaQuejas.add(new Queja("Los ómnibus no pasan a la hora que deberían"));
+						listaQuejas.add(new Queja("Hace tres días que no recogen la basura en mi cuadra"));
+						listaQuejas.add(new Queja("No hay Farmacias que abran 24 hs cerca de mi casa"));
+						listaQuejas.add(new Queja("El semáforo de la esquina está roto desde ayer"));
+				
+						Iterator<Queja> it = listaQuejas.iterator();
+						while (it.hasNext()) {
+							System.out.println(it.next());
+						}
+						listaQuejas.remove(0);
+						if (listaQuejas.isEmpty()) {
+							System.out.println("La lista de Quejas está vacía");
+						} else {
+							System.out.println("La lista de Quejas tiene " + listaQuejas.size() + " elementos");
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Escribir un programa que solicite los datos de personas (nombre y edad), los guarde en un
+							ArrayList.
+							Mostrar luego los datos de las personas mayores de 18 y posteriormente los datos de todas
+							las personas.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public class Persona {
+							private String nombre;
+							private int edad;
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							public int getEdad() {
+								return edad;
+							}
+						
+							public void setEdad(int unaEdad) {
+								edad = unaEdad;
+							}
+						
+							public Persona(String unNombre, int unaEdad) {
+								this.setNombre(unNombre);
+								this.setEdad(unaEdad);
+							}
+						
+							@Override
+							public String toString() {
+								return "Nombre: " + this.getNombre() + " Edad: " + this.getEdad();
+							}
+						
+						}
+						// main
+						ArrayList<Persona> listaPersonas = new ArrayList<>();
+						// Agrego 5 personas
+						for (int i = 1; i <= 5; i++) {
+							listaPersonas.add(crearPersona());
+						}
+						System.out.println("");
+						// Muestro con una Iteración los mayores de 18
+						System.out.println("Personas mayores de 18 años\n");
+						Iterator<Persona> itP = listaPersonas.iterator();
+						
+						while (itP.hasNext()) {
+							Persona unaP = itP.next();
+							if (unaP.getEdad() > 18) {
+								System.out.println(unaP);
+							}
+						}
+						System.out.println("");
+						// Muestro con un for a todas las personas
+						System.out.println("Todas las personas\n");
+						for (int i = 0; i < listaPersonas.size(); i++) {
+							System.out.println(listaPersonas.get(i));
+						}
+						public static Persona crearPersona() {
+							Scanner in = new Scanner(System.in);
+							System.out.println("\nINGRESO DE PERSONAS\n");
+							System.out.print("Ingrese el nombre: ");
+							String nombre = in.nextLine();
+							System.out.print("Ingrese la edad: ");
+							int edad = in.nextInt();
+					
+							Persona unaPersona = new Persona(nombre, edad);
+							return unaPersona;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Definir un ArrayList para contener Funcionarios (nombre, número y sueldo). Agregar varios
+							funcionarios. Indicar la cantidad de funcionarios que tienen sueldo mayor a 10000, el sueldo
+							mayor y
+							la cantidad de veces que está dicho sueldo en la lista.
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public class Funcionario {
+							private int numero;
+							private String nombre;
+							private int sueldo;
+						
+							public int getNumero() {
+								return numero;
+							}
+						
+							public void setNumero(int unNumero) {
+								numero = unNumero;
+							}
+						
+							public String getNombre() {
+								return nombre;
+							}
+						
+							public void setNombre(String unNombre) {
+								nombre = unNombre;
+							}
+						
+							public int getSueldo() {
+								return sueldo;
+							}
+						
+							public void setSueldo(int sueldo) {
+								this.sueldo = sueldo;
+							}
+						
+							public Funcionario(int unNumero, String unNombre, int unSueldo) {
+								this.setNumero(unNumero);
+								this.setNombre(unNombre);
+								this.setSueldo(unSueldo);
+							}
+						
+							@Override
+							public String toString() {
+								return "Número: " + this.getNumero() + ", nombre: " + this.getNombre()
+										+ ", sueldo: " + this.getSueldo();
+							}
+						
+						}
+						// main
+						ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();
+						listaFuncionarios.add(new Funcionario(1, "Juan García", 9500));
+						listaFuncionarios.add(new Funcionario(12, "Mario López", 75000));
+						listaFuncionarios.add(new Funcionario(14, "Pedro González", 25500));
+						listaFuncionarios.add(new Funcionario(17, "Alberto Giménez", 28300));
+						listaFuncionarios.add(new Funcionario(6, "María Torres", 55800));
+						listaFuncionarios.add(new Funcionario(22, "Ana Méndez", 75000));
+						listaFuncionarios.add(new Funcionario(10, "Gabriela Márquez", 48000));
+						listaFuncionarios.add(new Funcionario(19, "Luis Gómez", 23200));
+				
+						int cantidad = 0;
+						int sueldoMayor = 0;
+						int veces = 0;
+						Iterator<Funcionario> itF = listaFuncionarios.iterator();
+						while (itF.hasNext()) {
+							Funcionario unFun = itF.next();
+							if (unFun.getSueldo() > 10000) {
+								cantidad++;
+							}
+							if (unFun.getSueldo() > sueldoMayor) {
+								sueldoMayor = unFun.getSueldo();
+								veces = 1;
+							} else {
+								if (unFun.getSueldo() == sueldoMayor) {
+									veces++;
+								}
+							}
+						}
+						System.out.println("Personas que ganan más de 10000 pesos: " + cantidad);
+						System.out.println("El sueldo mayor es: " + sueldoMayor + " y lo ganan " + veces + "funcionarios");
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+						<ul>
+							<li>Definir un ArrayList para contener Paquetes (número, costo de envío y país de destino)
+							</li>
+							<li>Agregar varios paquetes</li>
+							<li>Definir un método static que reciba por parámetro el arrayList y un número de paquete y
+								retorne un valor boolean indicando si existe en el arrayList un paquete con dicho número
+							</li>
+							<li>Definir un método static que reciba por parámetro el arrayList y el nombre de un país, y
+								retorne el costo total de los paquetes que fueron enviados a dicho país</li>
+						</ul>
+						</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public class Paquete {
+							private int numero;
+							private int costo;
+							private String pais;
+						
+							public int getNumero() {
+								return numero;
+							}
+						
+							public void setNumero(int unNumero) {
+								numero = unNumero;
+							}
+						
+							public int getCosto() {
+								return costo;
+							}
+						
+							public void setCosto(int unCosto) {
+								costo = unCosto;
+							}
+						
+							public String getPais() {
+								return pais;
+							}
+						
+							public void setPais(String unPais) {
+								pais = unPais;
+							}
+						
+							public Paquete() {
+								this.setNumero(0);
+								this.setCosto(0);
+								this.setPais("Sin definir");
+							}
+						
+							public Paquete(int unNumero, int unCosto, String unPais) {
+								this.setNumero(unNumero);
+								this.setCosto(unCosto);
+								this.setPais(unPais);
+							}
+						
+							@Override
+							public String toString() {
+								return "Número: " + this.getNumero() + ", costo: " + this.getCosto()
+										+ ", pais: " + this.getPais();
+							}
+						
+							@Override
+							public boolean equals(Object obj) {
+								return this.getNumero() == ((Paquete) obj).getNumero();
+							}
+						}
+						// main
+						
+						ArrayList<Paquete> listaPaquetes = new ArrayList<>();
+
+						listaPaquetes.add(new Paquete(15, 1500, "Canadá"));
+						listaPaquetes.add(new Paquete(11, 550, "Argentina"));
+						listaPaquetes.add(new Paquete(10, 1100, "Puerto Rico"));
+						listaPaquetes.add(new Paquete(121, 350, "Argentina"));
+						listaPaquetes.add(new Paquete(132, 420, "Argentina"));
+						listaPaquetes.add(new Paquete(145, 770, "Ecuador"));
+						listaPaquetes.add(new Paquete(172, 650, "Argentina"));
+				
+						System.out.println("Existe paquete 121? " + existePaquete(listaPaquetes, 121));
+						System.out.println("Existe paquete 130? " + existePaquete(listaPaquetes, 130));
+				
+						System.out.println("Costo de envío de paquetes a Argentina: "
+								+ totalCosto(listaPaquetes, "Argentina"));
+						System.out.println("Costo de envío de paquetes a Ecuador: "
+								+ totalCosto(listaPaquetes, "Ecuador"));
+						System.out.println("Costo de envío de paquetes a U.S.A.: "
+								+ totalCosto(listaPaquetes, "U. S. A."));
+
+						public static boolean existePaquete(ArrayList<Paquete> listaP, int numero) {
+							Paquete aux = new Paquete();
+							aux.setNumero(numero);
+					
+							return listaP.contains(aux);
+						}
+					
+						public static int totalCosto(ArrayList<Paquete> listaP, String unPais) {
+							int total = 0;
+							Iterator<Paquete> it = listaP.iterator();
+							while (it.hasNext()) {
+								Paquete aux = it.next();
+								if (aux.getPais().equalsIgnoreCase(unPais)) {
+									total += aux.getCosto();
+								}
+							}
+							return total;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Reutilizar las clases Funcionario y Paquete creadas anteriormente. Agregar al paquete el
+							funcionario que realizó el envío. Agregar la clase Sistema que tiene las listas de
+							funcionarios y de
+							paquetes. Implementar los siguientes pedidos en la clase Sistema:
+						<ul>
+							<li>Retorne al funcionario que realizó la máxima cantidad de envíos. En caso de que exista
+								más de un
+								funcionario con la misma cantidad, retornar el de menor número de funcionario.
+							</li>
+							<li>Definir un método que reciba por parámetro un país de destino, y retorne un arrayList
+								con los
+								funcionarios (sin repetir) que realizaron envíos a dicho país.</li>
+							<li>Retornar cuántos envíos tiene un funcionario dado</li>
+							<li>Retornar la lista de funcionarios ordenada por nombre de funcionario</li>
+						</ul>
+						</p>
+					</small>
+				</section>
+			</section>
+			<!-- FIN ArrayList -->
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
 				<img data-src="img/programadora.png" width="50%" height="50%"
