@@ -3610,13 +3610,132 @@
 					</ol>
 				</section>
 			</section>
+			<!-- FIN Interfaz gráfica -->
+
+			<!-- Persistencia -->
 			<section>
-				<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
-					style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
-					
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h1>PR 10</h1>
+					<h2>Persistencia</h2>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar la serialización simple</p>
+					<small>
+						<ul>
+							<li>Definir la clase Persona con atributos nombre y edad. Indicar que sea Serializable.</li>
+							<li>Crear un primer programa donde se soliciten datos de 2 personas y serializarlas.</li>
+							<li>Luego, en segundo programa, tomar los datos serializados y mostrar la información por pantalla</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y herencia</p>
+					<small>
+						<ul>
+							<li>Definir Empleado como subclase de Persona, tiene atributo sueldo.</li>
+							<li>En el primer programa anterior, agregar que cree también un empleado, además de las dos
+								personas. Verificar si es necesario o no indicar que una subclase debe ser serializable.</li>
+							<li> Probar grabar y recuperar todos los datos.</li>
+							<li>Completar la frase: una subclase de una clase que implementa Serializable (ES/NO ES) serializable</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y modificación de la clase</p>
+					<small>
+						<ul>
+							<li>Ejecutar el programa del ejercicio 1 que crea dos personas y las serializa</li>
+							<li>Modificar la clase Persona para agregarle el atributo cédula. Ejecutar el programa del ejercicio 1
+								que recupera los objetos. ¿Se obtiene una excepción?</li>
+							<li>Investigar serialVersionUID. Agregar en la clase Persona el serialVersionUID. Realizar estas
+								pruebas: ejecutar nuevamente el programa de creación de personas, modificar la clase Persona
+								agregando el atributo peso y volver a ejecutar el programa de recuperación. ¿Se obtiene una
+								excepción?</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y transient</p>
+					<small>
+						<ul>
+							<li>A la clase Persona agregarle el atributo tipoSanguíneo, indicarle que es transient. Actualizar el
+								toString para que lo incluya</li>
+							<li> Ejecutar un programa que crea una persona, solicite todos los datos incluyendo el tipo de sangre y
+								la serialice</li>
+							<li>Ejecutar el programa que recupere los datos de la persona y los muestre. ¿Qué ocurre con el
+								tipoSanguíneo?</li>
+							<li>Completar la frase: los atributos transient (SI/NO) se serializan</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y variables de clase</p>
+					<small>
+						<ul>
+							<li>A la clase Persona agregarle el atributo estático número inicializado en 2000. Actualizar el toString
+								para que lo incluya</li>
+							<li>Ejecutar el programa que crea una persona y solicita sus datos, modificar el número para el valor
+								4000, y serializar</li>
+							<li>Ejecutar el programa que recupera los datos de la persona y los muestre. ¿Se obtiene el mismo
+								valor?</li>
+							<li>Completar la frase: las variables de clase (SI/NO) se serializan</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y asociación</p>
+					<small>
+						<ul>
+							<li>Agregar la clase Libro, con atributos título y año de primera edición e implementa Serializable</li>
+							<li>Agregarle a la persona el libro favorito</li>
+							<li>En un programa de prueba, crear una persona y su libro favorito, serializar la persona</li>
+							<li>En otro programa, recuperar la persona y mostrar todos sus datos. Observar que se tienen también
+								los datos de su libro</li>
+							<li>¿Verdadero o falso?: al serializar un objeto que refiere a otros objetos serializables, se serializa el
+								objeto completo</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<p>Probar serialización y agregación</p>
+					<small>
+						<ul>
+							<li>Modificar la clase Persona para que tenga un atributo librosALeer, que es un arrayList de Libros.
+								Modificar el toString para que incluya esta lista</li>
+							<li>En un programa de prueba, crear una persona, varios libros e indicarle a la persona esos libros para
+								leer. Serializar la persona</li>
+							<li>En otro programa, recuperar la persona y mostrar todos sus datos. Observar que se tienen también
+								los datos de su libro</li>
+							<li>¿Verdadero o falso?: al serializar un objeto que contiene ArrayList de otros objetos serializables, se
+								serializa el objeto completo</li>
+						</ul>
+					</small>
+				</section>
+
 			</section>
-
-
+			<!-- FIN Persistencia -->
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
 				<img data-src="img/programadora.png" width="50%" height="50%"
