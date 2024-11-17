@@ -157,7 +157,8 @@
 						<li><a href="#/16">Interfaz gráfica</a></li>
 						<li><a href="#/17">Persistencia</a></li>
 						<li><a href="#/18">Archivos de texto</a></li>
-						<!--<li><a href="#/19">Excepciones</a></li> -->
+						<li><a href="#/19">Ejercicios de Parcial 2</a></li>
+						<!--<li><a href="#/20">Excepciones</a></li> -->
 					</ul>
 				</small>
 			</section>
@@ -4103,6 +4104,226 @@
 				</section>
 			</section>
 			<!-- FIN Archivo de texto -->
+
+			<!-- Ejercicios de Parcial 2-->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h2>Ejercicios de Parcial 2</h2>
+					<img data-src="img/test.png" style="width: 200px; height: 200px;">
+				</section>
+				<section>
+
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Noviembre 2023 Matutino - Ej1</h4>
+					<p><small>
+							Se tiene una matriz de m*n donde en cada posición hay una palabra en mayúsculas. Cada palabra se puede
+unir solamente a otra idéntica y adyacente en forma vertical. Se trata de determinar la cantidad máxima de
+palabras que se pueden unir. Implementar un método en Java que recibe la matriz y retorna la cantidad.
+						</small></p>
+					<p><small>
+							<b>Firma: public static int palabraMasLargaIgual(String[][] matriz)</b>
+						</small>
+
+					</p>
+					<small>
+					<table>
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>C</td>
+							<td>D</td>
+						</tr>
+						<tr>
+							<td>ES</td>
+							<td>B</td>
+							<td>B</td>
+							<td>D</td>
+							<td>19</td>
+						</tr>
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>BR</td>
+							<td>D</td>
+						</tr>
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>C</td>
+							<td>D</td>
+						</tr>
+
+					</table>
+					Retorna 4 (por ej. se podrían unir 4 "B")
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int palabraMasLargaIgual(String[][] mat) {
+						    int max = 0;
+						    for (int k = 0; k < mat[0].length; k++) { // por cada columna verifico
+						        for (int i = 0; i < mat.length; i++) {
+						            boolean ok = true;
+						            int van = 1;
+						            // de cada posicion cuento hacia abajo
+						            for (int j = i + 1; j < mat.length && ok; j++) {
+						                if (mat[i][k].equals(mat[j][k]) {
+						                        van++;
+						                        if (van > max) {
+						                            max = van;
+						                        }
+						                    } else {
+						                        ok = false;
+						                    }
+						                }
+						            }
+						        }
+						        return max;
+						}	
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Noviembre 2023 Matutino - Ej2</h4>
+					<small>
+						<p>
+							Se tiene un archivo de texto de nombre “ResultadosBasquet.txt” que guarda todos los resultados de los
+partidos jugados en la Liga Uruguaya de Ascenso. Cada línea corresponde a un partido disputado con el
+siguiente formato: número equipo#tanteador#número equipo#tanteador. El número de equipo es un entero
+que está entre 1 y 16. Cada equipo debe jugar contra todos los demás.
+						</p>
+						<p>
+							Se pide, realizar un método en Java que recibe un número de equipo y graba el archivo "Faltan.txt" con una
+línea por cada equipo contra el que le falte jugar a ese equipo. Si no le falta ninguno, grabar "No faltan".
+						</p>
+						<p><b>Firma: public static void faltan(int cualEquipo)</b></p>
+						<p>No hay inconsistencias. Asumir disponibles las clases ArchivoLectura.java y ArchivoGrabacion.java vistas en clase.</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int lugar(int cualEquipo) {
+						    boolean[] jugados = new boolean[17];
+						    jugados[cualEquipo] = true;
+						    ArchivoLectura arch = new ArchivoLectura("ResultadosBasquet.txt");
+						    while (arch.hayMasLineas()) {
+						        String[] lin = archl.linea().split("#");
+						        int eq1 = Integer.parseInt(lin[0]);
+						        int eq2 = Integer.parseInt(lin[2]);
+						        if (eq1 == cualEquipo) {
+						            jugados[eq2] = true;
+						        }
+						        if (eq2 == cualEquipo) {
+						            jugados[eq1] = true;
+						        }
+						    }
+						    ArchivoGrabacion sal = new ArchivoGrabacion("Faltan.txt");
+						    int cant = 0;
+						    boolean grabe = false;
+						    for (int i = 1; i <= 16; i++) {
+						        if (!jugados[i] && i != cualEquipo) {
+						            sal.grabarLinea("" + i);
+						            grabe = true;
+						        }
+						    }
+						    if (!grabe) {
+						        sal.grabarLinea("No faltan");
+						    }
+						    sal.cerrar();
+						    arch.cerrar();
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Noviembre 2023 Matutino - Ej3</h4>
+					<small>
+						<p>
+							Un club deportivo necesita un sistema para manejar la información referente a sus socios, profesores y
+clases. En este primera versión, el sistema debe permitir:
+						</p>
+						<p>
+							<ul>
+								<li>Registrar socio: ingresar nombre, nro y año nacimiento</li>
+								<li>Registrar profesor: nombre, codigo habilitante, año de nacimiento</li>
+								<li>Registrar clase: nombre, hora de inicio, hora de fin, capacidad max</li>
+								<li>Reservar clase: se elige una clase de la lista (ordenadas por orden ASC, hora inicio y fin). Solo se deben mostrar las clases que tengan capacidad disponible.
+								Se digita el nro de socio. Si es válido, se registra la reserva, actualizandose también la información necesaria.</li>
+							</ul>
+						</p>
+						<p>{{VER UML}}</p>
+						<p>Se asumen disponibles: set, get y constructores sin parámetros. No se pueden agregar atributos.
+Para el caso de uso del punto d) Reservar clase se diseñó esta interfaz:</p>
+						<p>{{VER IMG}}</p>
+						<p>Se pide desarrollar constructor, detalle de eventos y métodos completos asociados a los eventos en Java para d).</p>
+					</small>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Solución</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public Ventana(Sistema unModelo) {
+						    modelo = unModelo;
+						    initComponents();
+						    listaClases.setListData(modelo.darClasesLugar().toArray());
+						}
+						
+						// En Clase
+						public ArrayList < Clase > darClasesLugar() {
+						    Collections.sort(this.getListaClases());
+						    ArrayList < Clase > lista = new ArrayList < Clase > ();
+						    for (let i = 0; i < this.getListaClases().size(); i++) {
+						        Clase c = this.getListaClases().get(i);
+						        if (c.getCapacidadMaxima() > this.getCantidadReservas().size()) {
+						            lista.add(c);
+						        }
+						    }
+						    return lista;
+						}
+						
+						Clase implements Comparable < Clase >
+						    public int compareTo(Clase c) {
+						        return this.getNombre().compareTo(c.getNombre());
+						    }
+						}
+						public String toString() {
+						    return this.getNombre() + this.getHoraInicio() + " " + this.getHoraFin();
+						}
+						// En Socio
+						public boolean equals(Object o) {
+						    return this.getNumero() == ((Socio) o).getNumero();
+						}
+						// Al click del boton
+						int num = Integer.parseInt(cajaNumero.getText());
+						Socio s = new Socio();
+						s.setNumero(num);
+						int pos = modelo.getListaSocios().indexOf(s);
+						if (pos != -1) {
+						    Socio s = modelo.getListaSocios().get(pos);
+						    Reserva r = new Reserva();
+						    r.setSocio(s);
+						    Clase cual = (Clase) listaClases.getSelectedValue();
+						    r.setClase(cual);
+						    modelo.getListaReservas().add(r);
+						    cual.setCantidadReservas(cual.getCantidadReservas() + 1);
+						}
+					</code></pre>
+				</section>
+			</section>
+			<!-- FIN -->
 			<section>
 				<p>¡Hasta la Próxima Semana!</p>
 				<img data-src="img/programadora.png" width="50%" height="50%"
