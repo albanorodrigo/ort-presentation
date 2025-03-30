@@ -1931,6 +1931,111 @@
 						}
 					</code></pre>
 				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							<b>Descifrar una melodía oculta</b> en una matriz de notas musicales y reproducirla usando
+							una
+							librería de sonido en Java.
+						</p>
+						<p>
+						<ul>
+							<li>Leer una matriz de notas musicales.</li>
+							<li>Usar una clave externa para extraer la melodía en el orden correcto.</li>
+							<li>Reproducir la melodía en tiempo real usando una librería de audio.</li>
+						</ul>
+						</p>
+					</small>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						char[][] notas = {
+							{'C', 'D', 'E'},
+							{'F', 'G', 'A'},
+							{'B', 'C', 'D'}
+						};
+				
+						// Clave externa que indica el orden de lectura (fila, columna)
+						int[][] clave = {
+							{2, 2}, {2, 2}, {0, 2}, {1, 0}, {1, 1}, {1, 0}, {0, 2}, {0, 1}, {0, 0}, 
+							{0, 0}, {0, 1}, {0, 2}, {2, 2}, {0, 1}, {0, 1},
+							{2, 2}, {2, 2}, {0, 2}, {1, 0}, {1, 1}, {1, 0}, {0, 2}, {0, 1}, {0, 0},
+							{0, 0}, {0, 1}, {0, 2}, {0, 1}, {0, 0}, {0, 0}
+						};		
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						import java.util.HashMap;
+						import java.util.InputMismatchException;
+						import java.util.Map;
+						import javax.sound.midi.*;
+						
+						public static void notasMusicales() throws Exception {
+							char[][] notas = {
+								{'C', 'D', 'E'},
+								{'F', 'G', 'A'},
+								{'B', 'C', 'D'}
+							};
+					
+							// Clave externa que indica el orden de lectura (coordenadas fila, columna)
+							int[][] clave = {
+								{2, 2}, {2, 2}, {0, 2}, {1, 0}, {1, 1}, {1, 0}, {0, 2}, {0, 1}, {0, 0}, 
+								{0, 0}, {0, 1}, {0, 2}, {2, 2}, {0, 1}, {0, 1},
+								{2, 2}, {2, 2}, {0, 2}, {1, 0}, {1, 1}, {1, 0}, {0, 2}, {0, 1}, {0, 0},
+								{0, 0}, {0, 1}, {0, 2}, {0, 1}, {0, 0}, {0, 0}
+							};
+							
+							
+					
+							// Construir la melodía ordenada
+							char[] melodia = new char[clave.length];
+							for (int i = 0; i < clave.length; i++) {
+								int fila = clave[i][0];
+								int columna = clave[i][1];
+								melodia[i] = notas[fila][columna];
+							}
+					
+							// Mostrar la melodía descifrada
+							System.out.print("Melodía descifrada: ");
+							for (char nota : melodia) {
+								System.out.print(nota + " ");
+							}
+							System.out.println();
+					
+							// Mapeo de notas musicales a valores MIDI
+							Map<Character, Integer> mapaNotas = new HashMap<>();
+							mapaNotas.put('C', 60); // Do
+							mapaNotas.put('D', 62); // Re
+							mapaNotas.put('E', 64); // Mi
+							mapaNotas.put('F', 65); // Fa
+							mapaNotas.put('G', 67); // Sol
+							mapaNotas.put('A', 69); // La
+							mapaNotas.put('B', 71); // Si
+					
+							// Configurar el sintetizador MIDI
+							Synthesizer sintetizador = MidiSystem.getSynthesizer();
+							sintetizador.open();
+							MidiChannel[] canales = sintetizador.getChannels();
+							MidiChannel canal = canales[0];
+					
+							// Reproducir la melodía
+							for (char nota : melodia) {
+								if (mapaNotas.containsKey(nota)) {
+									int midiNota = mapaNotas.get(nota);
+									canal.noteOn(midiNota, 100); // Toca la nota
+									Thread.sleep(500); // Espera 500ms
+									canal.noteOff(midiNota); // Apaga la nota
+								}
+							}
+					
+							// Cerrar el sintetizador
+							sintetizador.close();
+						}
+					</code></pre>
+				</section>
 			</section>
 			<!-- FIN Matrices -->
 
@@ -3810,7 +3915,9 @@
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<h1>PR 11</h1>
 					<h2>Archivo de texto</h2>
-					<p>Las clases <a href="./ArchivoLectura.java" target="_blank">ArchivoLectura</a> y <a href="./ArchivoGrabacion.java" target="_blank">ArchivoGrabacion</a> se asumen disponibles</p>
+					<p>Las clases <a href="./ArchivoLectura.java" target="_blank">ArchivoLectura</a> y <a
+							href="./ArchivoGrabacion.java" target="_blank">ArchivoGrabacion</a> se asumen disponibles
+					</p>
 				</section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
@@ -4117,9 +4224,12 @@
 				<section>
 					<h4>Noviembre 2023 Matutino - Ej1</h4>
 					<p><small>
-							Se tiene una matriz de m*n donde en cada posición hay una palabra en mayúsculas. Cada palabra se puede
-unir solamente a otra idéntica y adyacente en forma vertical. Se trata de determinar la cantidad máxima de
-palabras que se pueden unir. Implementar un método en Java que recibe la matriz y retorna la cantidad.
+							Se tiene una matriz de m*n donde en cada posición hay una palabra en mayúsculas. Cada
+							palabra se puede
+							unir solamente a otra idéntica y adyacente en forma vertical. Se trata de determinar la
+							cantidad máxima de
+							palabras que se pueden unir. Implementar un método en Java que recibe la matriz y retorna la
+							cantidad.
 						</small></p>
 					<p><small>
 							<b>Firma: public static int palabraMasLargaIgual(String[][] matriz)</b>
@@ -4127,56 +4237,56 @@ palabras que se pueden unir. Implementar un método en Java que recibe la matriz
 
 					</p>
 					<small>
-					<table>
-						<tr>
-							<td>A</td>
-							<td>B</td>
-							<td>C</td>
-							<td>D</td>
-						</tr>
-						<tr>
-							<td>ES</td>
-							<td>B</td>
-							<td>B</td>
-							<td>D</td>
-						</tr>
-						<tr>
-							<td>A</td>
-							<td>B</td>
-							<td>BR</td>
-							<td>D</td>
-						</tr>
-						<tr>
-							<td>A</td>
-							<td>B</td>
-							<td>C</td>
-							<td>D</td>
-						</tr>
-					</table>
-					Retorna 4 (por ej. se podrían unir 4 "B")
-					<table>
-						<tr>
-							<td>SOL</td>
-							<td>FIFI</td>
-							<td>ES</td>
-						</tr>
-						<tr>
-							<td>HA</td>
-							<td>HI</td>
-							<td>CASA</td>
-						</tr>
-						<tr>
-							<td>HA</td>
-							<td>LIFO</td>
-							<td>CASA</td>
-						</tr>
-						<tr>
-							<td>HA</td>
-							<td>SCSI</td>
-							<td>FIFI</td>
-						</tr>
-					</table>
-					Retorna 3 (se podrían unir 3 "HA")
+						<table>
+							<tr>
+								<td>A</td>
+								<td>B</td>
+								<td>C</td>
+								<td>D</td>
+							</tr>
+							<tr>
+								<td>ES</td>
+								<td>B</td>
+								<td>B</td>
+								<td>D</td>
+							</tr>
+							<tr>
+								<td>A</td>
+								<td>B</td>
+								<td>BR</td>
+								<td>D</td>
+							</tr>
+							<tr>
+								<td>A</td>
+								<td>B</td>
+								<td>C</td>
+								<td>D</td>
+							</tr>
+						</table>
+						Retorna 4 (por ej. se podrían unir 4 "B")
+						<table>
+							<tr>
+								<td>SOL</td>
+								<td>FIFI</td>
+								<td>ES</td>
+							</tr>
+							<tr>
+								<td>HA</td>
+								<td>HI</td>
+								<td>CASA</td>
+							</tr>
+							<tr>
+								<td>HA</td>
+								<td>LIFO</td>
+								<td>CASA</td>
+							</tr>
+							<tr>
+								<td>HA</td>
+								<td>SCSI</td>
+								<td>FIFI</td>
+							</tr>
+						</table>
+						Retorna 3 (se podrían unir 3 "HA")
 					</small>
 				</section>
 				<section>
@@ -4213,17 +4323,23 @@ palabras que se pueden unir. Implementar un método en Java que recibe la matriz
 					<h4>Noviembre 2023 Matutino - Ej2</h4>
 					<small>
 						<p>
-							Se tiene un archivo de texto de nombre “ResultadosBasquet.txt” que guarda todos los resultados de los
-partidos jugados en la Liga Uruguaya de Ascenso. Cada línea corresponde a un partido disputado con el
-siguiente formato: número equipo#tanteador#número equipo#tanteador. El número de equipo es un entero
-que está entre 1 y 16. Cada equipo debe jugar contra todos los demás.
+							Se tiene un archivo de texto de nombre “ResultadosBasquet.txt” que guarda todos los
+							resultados de los
+							partidos jugados en la Liga Uruguaya de Ascenso. Cada línea corresponde a un partido
+							disputado con el
+							siguiente formato: número equipo#tanteador#número equipo#tanteador. El número de equipo es
+							un entero
+							que está entre 1 y 16. Cada equipo debe jugar contra todos los demás.
 						</p>
 						<p>
-							Se pide, realizar un método en Java que recibe un número de equipo y graba el archivo "Faltan.txt" con una
-línea por cada equipo contra el que le falte jugar a ese equipo. Si no le falta ninguno, grabar "No faltan".
+							Se pide, realizar un método en Java que recibe un número de equipo y graba el archivo
+							"Faltan.txt" con una
+							línea por cada equipo contra el que le falte jugar a ese equipo. Si no le falta ninguno,
+							grabar "No faltan".
 						</p>
 						<p><b>Firma: public static void faltan(int cualEquipo)</b></p>
-						<p>No hay inconsistencias. Asumir disponibles las clases ArchivoLectura.java y ArchivoGrabacion.java vistas en clase.</p>
+						<p>No hay inconsistencias. Asumir disponibles las clases ArchivoLectura.java y
+							ArchivoGrabacion.java vistas en clase.</p>
 					</small>
 				</section>
 				<section>
@@ -4269,23 +4385,28 @@ línea por cada equipo contra el que le falte jugar a ese equipo. Si no le falta
 					<h4>Noviembre 2023 Matutino - Ej3</h4>
 					<small>
 						<p>
-							Un club deportivo necesita un sistema para manejar la información referente a sus socios, profesores y
-clases. En este primera versión, el sistema debe permitir:
+							Un club deportivo necesita un sistema para manejar la información referente a sus socios,
+							profesores y
+							clases. En este primera versión, el sistema debe permitir:
 						</p>
 						<p>
-							<ul>
-								<li>Registrar socio: ingresar nombre, nro y año nacimiento</li>
-								<li>Registrar profesor: nombre, codigo habilitante, año de nacimiento</li>
-								<li>Registrar clase: nombre, hora de inicio, hora de fin, capacidad max</li>
-								<li>Reservar clase: se elige una clase de la lista (ordenadas por orden ASC, hora inicio y fin). Solo se deben mostrar las clases que tengan capacidad disponible.
-								Se digita el nro de socio. Si es válido, se registra la reserva, actualizandose también la información necesaria.</li>
-							</ul>
+						<ul>
+							<li>Registrar socio: ingresar nombre, nro y año nacimiento</li>
+							<li>Registrar profesor: nombre, codigo habilitante, año de nacimiento</li>
+							<li>Registrar clase: nombre, hora de inicio, hora de fin, capacidad max</li>
+							<li>Reservar clase: se elige una clase de la lista (ordenadas por orden ASC, hora inicio y
+								fin). Solo se deben mostrar las clases que tengan capacidad disponible.
+								Se digita el nro de socio. Si es válido, se registra la reserva, actualizandose también
+								la información necesaria.</li>
+						</ul>
 						</p>
 						<p>{{VER UML}}</p>
-						<p>Se asumen disponibles: set, get y constructores sin parámetros. No se pueden agregar atributos.
-Para el caso de uso del punto d) Reservar clase se diseñó esta interfaz:</p>
+						<p>Se asumen disponibles: set, get y constructores sin parámetros. No se pueden agregar
+							atributos.
+							Para el caso de uso del punto d) Reservar clase se diseñó esta interfaz:</p>
 						<p>{{VER IMG}}</p>
-						<p>Se pide desarrollar constructor, detalle de eventos y métodos completos asociados a los eventos en Java para d).</p>
+						<p>Se pide desarrollar constructor, detalle de eventos y métodos completos asociados a los
+							eventos en Java para d).</p>
 					</small>
 				</section>
 				<section>
