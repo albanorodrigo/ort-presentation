@@ -2036,6 +2036,183 @@
 						}
 					</code></pre>
 				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<small>
+						<p>
+							Ayudar a un personaje a encontrar la salida de un laberinto representado por una Matriz
+						</p>
+						<p>
+						<ul>
+							<li>Mariz NxM que representa un laberinto con pasillos (' '), paredes ('#') y una salida
+								('S').</li>
+							<li>Un personaje ('P') inicia en una posición aleatoria y debe encontrar la salida
+								moviéndose por los pasillos.</li>
+							<li>Implementar un algoritmo para resolver el laberinto automáticamente.</li>
+						</ul>
+						</p>
+					</small>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						import java.util.Random;
+						public class Laberinto {
+							static char[][] laberinto = {
+								{'#', '#', '#', '#', '#', '#', '#'},
+								{'#', ' ', ' ', '#', ' ', 'S', '#'},
+								{'#', ' ', '#', '#', ' ', '#', '#'},
+								{'#', ' ', '#', ' ', ' ', ' ', '#'},
+								{'#', 'P', '#', '#', '#', ' ', '#'},
+								{'#', '#', '#', '#', '#', '#', '#'}
+							};
+
+							static int[] direccionFila = {-1, 1, 0, 0}; // Arriba, Abajo, Izquierda, Derecha
+							static int[] direccionColumna = {0, 0, -1, 1};
+
+							public static void main(String[] args) {
+								System.out.println("Laberinto Inicial:");
+								imprimirLaberinto();
+
+								if (resolverLaberinto()) {
+									System.out.println("¡Personaje encontró la salida!");
+								} else {
+									System.out.println("No hay solución.");
+								}
+							}
+
+							static boolean resolverLaberinto() {
+								int filaP = 0, colP = 0;
+
+								// Encontrar la posición inicial del personaje
+								for (int i = 0; i < laberinto.length; i++) {
+									for (int j = 0; j < laberinto[i].length; j++) {
+										if (laberinto[i][j] == 'P') {
+											filaP = i;
+											colP = j;
+										}
+									}
+								}
+
+								return buscarSalida(filaP, colP);
+							}
+
+							static boolean buscarSalida(int fila, int columna) {
+								if (laberinto[fila][columna] == 'S') return true; // ¡Llegó a la salida!
+
+								laberinto[fila][columna] = '.'; // Marcar camino recorrido
+
+								for (int i = 0; i < 4; i++) {
+									int nuevaFila = fila + direccionFila[i];
+									int nuevaColumna = columna + direccionColumna[i];
+
+									if (esMovimientoValido(nuevaFila, nuevaColumna)) {
+										if (buscarSalida(nuevaFila, nuevaColumna)) return true;
+									}
+								}
+
+								laberinto[fila][columna] = ' '; // Retroceder si no hay salida
+								return false;
+							}
+
+							static boolean esMovimientoValido(int fila, int columna) {
+								return fila >= 0 && fila < laberinto.length && columna >= 0 && columna < laberinto[0].length
+										&& (laberinto[fila][columna] == ' ' || laberinto[fila][columna] == 'S');
+							}
+
+							static void imprimirLaberinto() {
+								for (char[] fila : laberinto) {
+									for (char celda : fila) {
+										System.out.print(celda + " ");
+									}
+									System.out.println();
+								}
+							}
+						}
+	
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<pre><code code class="hljs java" data-trim data-noescape>
+						import java.util.Random;
+						public class Laberinto {
+							static char[][] laberinto = {
+								{'#', '#', '#', '#', '#', '#', '#'},
+								{'#', ' ', ' ', '#', ' ', 'S', '#'},
+								{'#', ' ', '#', '#', ' ', '#', '#'},
+								{'#', ' ', '#', ' ', ' ', ' ', '#'},
+								{'#', 'P', '#', '#', '#', ' ', '#'},
+								{'#', '#', '#', '#', '#', '#', '#'}
+							};
+
+							static int[] direccionFila = {-1, 1, 0, 0}; // Arriba, Abajo, Izquierda, Derecha
+							static int[] direccionColumna = {0, 0, -1, 1};
+
+							public static void main(String[] args) {
+								System.out.println("🔍 Laberinto Inicial:");
+								imprimirLaberinto();
+
+								if (resolverLaberinto()) {
+									System.out.println("🎉 ¡Personaje encontró la salida!");
+								} else {
+									System.out.println("❌ No hay solución.");
+								}
+
+								System.out.println("🛤️ Laberinto con el camino recorrido:");
+								imprimirLaberinto();
+							}
+
+							static boolean resolverLaberinto() {
+								int filaP = 0, colP = 0;
+
+								// Encontrar la posición inicial del personaje
+								for (int i = 0; i < laberinto.length; i++) {
+									for (int j = 0; j < laberinto[i].length; j++) {
+										if (laberinto[i][j] == 'P') {
+											filaP = i;
+											colP = j;
+										}
+									}
+								}
+
+								return buscarSalida(filaP, colP);
+							}
+
+							static boolean buscarSalida(int fila, int columna) {
+								if (laberinto[fila][columna] == 'S') return true; // ¡Llegó a la salida!
+
+								laberinto[fila][columna] = '.'; // Marcar camino recorrido
+
+								for (int i = 0; i < 4; i++) {
+									int nuevaFila = fila + direccionFila[i];
+									int nuevaColumna = columna + direccionColumna[i];
+
+									if (esMovimientoValido(nuevaFila, nuevaColumna)) {
+										if (buscarSalida(nuevaFila, nuevaColumna)) return true;
+									}
+								}
+
+								laberinto[fila][columna] = ' '; // Retroceder si no hay salida
+								return false;
+							}
+
+							static boolean esMovimientoValido(int fila, int columna) {
+								return fila >= 0 && fila < laberinto.length && columna >= 0 && columna < laberinto[0].length
+										&& (laberinto[fila][columna] == ' ' || laberinto[fila][columna] == 'S');
+							}
+
+							static void imprimirLaberinto() {
+								for (char[] fila : laberinto) {
+									for (char celda : fila) {
+										System.out.print(celda + " ");
+									}
+									System.out.println();
+								}
+							}
+						}
+	
+					</code></pre>
+				</section>
 			</section>
 			<!-- FIN Matrices -->
 
