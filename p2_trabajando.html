@@ -2049,82 +2049,37 @@
 								('S').</li>
 							<li>Un personaje ('P') inicia en una posición aleatoria y debe encontrar la salida
 								moviéndose por los pasillos.</li>
-							<li>Implementar un algoritmo para resolver el laberinto automáticamente.</li>
+							<li>Implementar un algoritmo para resolver el laberinto automáticamente (Capacidad máxima
+								100 movimientos)</li>
 						</ul>
 						</p>
 					</small>
 					<pre><code code class="hljs java" data-trim data-noescape>
-						import java.util.Random;
 						public class Laberinto {
 							static char[][] laberinto = {
-								{'#', '#', '#', '#', '#', '#', '#'},
-								{'#', ' ', ' ', '#', ' ', 'S', '#'},
-								{'#', ' ', '#', '#', ' ', '#', '#'},
-								{'#', ' ', '#', ' ', ' ', ' ', '#'},
-								{'#', 'P', '#', '#', '#', ' ', '#'},
-								{'#', '#', '#', '#', '#', '#', '#'}
+								{'#', '#', '#', '#', '#', '#', '#', '#'},
+								{'#', ' ', ' ', ' ', '#', 'S', ' ', '#'},
+								{'#', ' ', '#', ' ', '#', '#', ' ', '#'},
+								{'#', ' ', '#', ' ', ' ', ' ', ' ', '#'},
+								{'#', 'P', '#', '#', '#', ' ', ' ', '#'},
+								{'#', '#', '#', '#', '#', '#', '#', '#'}
 							};
-
-							static int[] direccionFila = {-1, 1, 0, 0}; // Arriba, Abajo, Izquierda, Derecha
+						
+							static int[] direccionFila = {-1, 1, 0, 0};
 							static int[] direccionColumna = {0, 0, -1, 1};
-
+						
 							public static void main(String[] args) {
 								System.out.println("Laberinto Inicial:");
 								imprimirLaberinto();
-
+						
 								if (resolverLaberinto()) {
-									System.out.println("¡Personaje encontró la salida!");
+									System.out.println("El personaje encontro la salida!");
 								} else {
 									System.out.println("No hay solución.");
 								}
-							}
-
-							static boolean resolverLaberinto() {
-								int filaP = 0, colP = 0;
-
-								// Encontrar la posición inicial del personaje
-								for (int i = 0; i < laberinto.length; i++) {
-									for (int j = 0; j < laberinto[i].length; j++) {
-										if (laberinto[i][j] == 'P') {
-											filaP = i;
-											colP = j;
-										}
-									}
-								}
-
-								return buscarSalida(filaP, colP);
-							}
-
-							static boolean buscarSalida(int fila, int columna) {
-								if (laberinto[fila][columna] == 'S') return true; // ¡Llegó a la salida!
-
-								laberinto[fila][columna] = '.'; // Marcar camino recorrido
-
-								for (int i = 0; i < 4; i++) {
-									int nuevaFila = fila + direccionFila[i];
-									int nuevaColumna = columna + direccionColumna[i];
-
-									if (esMovimientoValido(nuevaFila, nuevaColumna)) {
-										if (buscarSalida(nuevaFila, nuevaColumna)) return true;
-									}
-								}
-
-								laberinto[fila][columna] = ' '; // Retroceder si no hay salida
-								return false;
-							}
-
-							static boolean esMovimientoValido(int fila, int columna) {
-								return fila >= 0 && fila < laberinto.length && columna >= 0 && columna < laberinto[0].length
-										&& (laberinto[fila][columna] == ' ' || laberinto[fila][columna] == 'S');
-							}
-
-							static void imprimirLaberinto() {
-								for (char[] fila : laberinto) {
-									for (char celda : fila) {
-										System.out.print(celda + " ");
-									}
-									System.out.println();
-								}
+						
+								System.out.println("Laberinto con el camino recorrido:");
+								imprimirLaberinto();
 							}
 						}
 	
@@ -2134,70 +2089,89 @@
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
 					<pre><code code class="hljs java" data-trim data-noescape>
-						import java.util.Random;
+						package laberinto;
 						public class Laberinto {
+
 							static char[][] laberinto = {
-								{'#', '#', '#', '#', '#', '#', '#'},
-								{'#', ' ', ' ', '#', ' ', 'S', '#'},
-								{'#', ' ', '#', '#', ' ', '#', '#'},
-								{'#', ' ', '#', ' ', ' ', ' ', '#'},
-								{'#', 'P', '#', '#', '#', ' ', '#'},
-								{'#', '#', '#', '#', '#', '#', '#'}
+								{'#', '#', '#', '#', '#', '#', '#', '#'},
+								{'#', ' ', ' ', ' ', '#', 'S', ' ', '#'},
+								{'#', ' ', '#', ' ', '#', '#', ' ', '#'},
+								{'#', ' ', '#', ' ', ' ', ' ', ' ', '#'},
+								{'#', 'P', '#', '#', '#', ' ', ' ', '#'},
+								{'#', '#', '#', '#', '#', '#', '#', '#'}
 							};
 
-							static int[] direccionFila = {-1, 1, 0, 0}; // Arriba, Abajo, Izquierda, Derecha
+							static int[] direccionFila = {-1, 1, 0, 0};
 							static int[] direccionColumna = {0, 0, -1, 1};
 
 							public static void main(String[] args) {
-								System.out.println("🔍 Laberinto Inicial:");
+								System.out.println("Laberinto Inicial:");
 								imprimirLaberinto();
 
 								if (resolverLaberinto()) {
-									System.out.println("🎉 ¡Personaje encontró la salida!");
+									System.out.println("El personaje encontro la salida!");
 								} else {
-									System.out.println("❌ No hay solución.");
+									System.out.println("No hay solución.");
 								}
 
-								System.out.println("🛤️ Laberinto con el camino recorrido:");
+								System.out.println("Laberinto con el camino recorrido:");
 								imprimirLaberinto();
 							}
 
 							static boolean resolverLaberinto() {
-								int filaP = 0, colP = 0;
+								int filaInicio = 0, colInicio = 0;
 
-								// Encontrar la posición inicial del personaje
+								// Buscar la posición inicial
 								for (int i = 0; i < laberinto.length; i++) {
 									for (int j = 0; j < laberinto[i].length; j++) {
 										if (laberinto[i][j] == 'P') {
-											filaP = i;
-											colP = j;
+											filaInicio = i;
+											colInicio = j;
 										}
 									}
 								}
 
-								return buscarSalida(filaP, colP);
-							}
+								// Simular una pila con arrays (capacidad máxima de 100 movimientos)
+								int[] pilaFilas = new int[100];
+								int[] pilaColumnas = new int[100];
+								int tope = 0;
 
-							static boolean buscarSalida(int fila, int columna) {
-								if (laberinto[fila][columna] == 'S') return true; // ¡Llegó a la salida!
+								pilaFilas[tope] = filaInicio;
+								pilaColumnas[tope] = colInicio;
+								tope++;
 
-								laberinto[fila][columna] = '.'; // Marcar camino recorrido
+								while (tope > 0) {
+									// Sacar de la "pila"
+									tope--;
+									int fila = pilaFilas[tope];
+									int columna = pilaColumnas[tope];
 
-								for (int i = 0; i < 4; i++) {
-									int nuevaFila = fila + direccionFila[i];
-									int nuevaColumna = columna + direccionColumna[i];
+									if (laberinto[fila][columna] == 'S') {
+										return true;
+									}
 
-									if (esMovimientoValido(nuevaFila, nuevaColumna)) {
-										if (buscarSalida(nuevaFila, nuevaColumna)) return true;
+									if (laberinto[fila][columna] != 'P') {
+										laberinto[fila][columna] = '.'; // marcar como visitado
+									}
+
+									for (int i = 0; i < 4; i++) {
+										int nuevaFila = fila + direccionFila[i];
+										int nuevaColumna = columna + direccionColumna[i];
+
+										if (esMovimientoValido(nuevaFila, nuevaColumna)) {
+											pilaFilas[tope] = nuevaFila;
+											pilaColumnas[tope] = nuevaColumna;
+											tope++;
+										}
 									}
 								}
 
-								laberinto[fila][columna] = ' '; // Retroceder si no hay salida
 								return false;
 							}
 
 							static boolean esMovimientoValido(int fila, int columna) {
-								return fila >= 0 && fila < laberinto.length && columna >= 0 && columna < laberinto[0].length
+								return fila >= 0 && fila < laberinto.length
+										&& columna >= 0 && columna < laberinto[0].length
 										&& (laberinto[fila][columna] == ' ' || laberinto[fila][columna] == 'S');
 							}
 
@@ -2209,8 +2183,8 @@
 									System.out.println();
 								}
 							}
-						}
-	
+}
+
 					</code></pre>
 				</section>
 			</section>
