@@ -2412,7 +2412,7 @@
 			<!-- FIN String y Math -->
 
 			<!-- Ejercicios de Parcial 1-->
-			<section>
+			<!-- <section>
 				<section>
 					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
 						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
@@ -2645,7 +2645,91 @@
 						}
 					</code></pre>
 				</section>
+			</section> -->
+			<section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+
+					<h2>Ejercicios de Parcial 1</h2>
+					<img data-src="img/test.png" style="width: 200px; height: 200px;">
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>EJ 1</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static int valorDecimal(double[] datos) {
+							int resultado = 0;
+							int potencia = datos.length - 1;
+					
+							for (int i = 0; i < datos.length; i++) {
+								resultado += datos[i] * Math.pow(10, potencia);
+								potencia--;
+							}
+					
+							return resultado;
+						}	
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>EJ 2</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static double[][] proceso(double[][] mat) {
+							int filas = mat.length;
+							int columnas = mat[0].length;
+					
+							double[][] resultado = new double[filas][2];
+					
+							for (int i = 0; i < mat.length; i++) {
+								// Voy a recorrer el array de la matriz parametro para calcular la suma
+								double sumaFila = 0;
+								for (int k = 0; k < mat[0].length; k++) {
+									sumaFila = mat[i][k] + sumaFila;
+								}
+								// Cargamos datos
+								resultado[i][0] = sumaFila;
+								resultado[i][1] = valorDecimal(mat[i]);
+							}
+					
+							return resultado;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>EJ 3</h4>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static String maximaDiferencia(int[][] mat, int p, int q) {
+							int maxDiferencia = 0;
+							
+							int filas = mat.length;
+					
+							for (int i = 0; i < filas; i++) {
+								// Obtenemos el valor a comparar
+								int valorColumnaP = mat[i][p];
+					
+								for (int j = 0; j < filas; j++) {
+									if (i != j) { // filas diferentes
+										int valorColumnaQ = mat[j][q];
+										int diferencia = Math.abs(valorColumnaP - valorColumnaQ);
+					
+										if (diferencia > maxDiferencia) {
+											maxDiferencia = diferencia;
+										}
+									}
+								}
+							}
+					
+							return "Maxima diferencia: " + maxDiferencia;
+						}
+					</code></pre>
+				</section>
 			</section>
+			
 			<!-- FIN -->
 
 			<!-- Objetos (Basico) -->
