@@ -4687,6 +4687,284 @@
 					</code></pre>
 				</section>
 
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Diciembre 2022 Nocturno - Ej1</h4>
+					<small>
+						<p>
+							Una matriz es "especial" si todas las diagonales desde arriba a la izquierda a abajo derecha
+							tienen el mismo
+							elemento. Dada una matriz, retornar true si es especial.
+						</p>
+						<p><b>Firma: public static boolean especial (int[][] mat)</b></p>
+						<p>Ej matriz especial:</p>
+					</small>
+					<table>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>5</td>
+							<td>1</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Parcial DICIEMBRE 2024 MATUTINO</h4>
+					<h5>Solucion EJ 1</h5>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static boolean producir(int[][] mat) {
+							// defino dos arrays para guardar las necesidades de cada materia prima y las cantidades compradas
+							int[] necesidades = new int[mat[0].length];
+							int[] compras = new int[mat[0].length];
+							for (int i=0; i<mat.length; i++) {
+								for (int j=0; j<mat[0].length; j++) {
+									necesidades[j] += mat[i][j];
+								}
+							}
+							ArchivoLectura arch = new ArchivoLectura("Compras.txt");
+							ArchivoGrabacion errores = new ArchivoGrabacion("Errores.txt");
+							while (arch.hayMasLineas()){
+								String proveedor = arch.linea();
+								arch.hayMasLineas();
+								int cantidad = Integer.parseInt(arch.linea());
+								for (int i=0; i<cantidad; i++) {
+									arch.hayMasLineas();
+									String[] datos = arch.linea().split("#");
+									int mp = Integer.parseInt(datos[0]);
+									int cant = Integer.parseInt(datos[1]);
+									if (cant > 0){
+										compras[mp-1] += cant;
+									}
+									else {
+										errores.grabarLinea(proveedor+" "+mp);
+									}
+								}
+							}
+							arch.cerrar();
+							errores.cerrar();
+							boolean puede = true;
+							for (let i=0; i<necesidades.length && puede; i++){
+								if (necesidades[i] > compras[i]){
+									puede = false;
+								}
+							}
+							return puede;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Parcial DICIEMBRE 2024 MATUTINO</h4>
+					<h5>Solucion EJ 2</h5>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public Ventana(Sistema unModelo){
+							modelo = unModelo;
+							initComponents();
+							listaTorneos.setListData(modelo.getListaTorneos().toArray());
+							informacion.setText(modelo.todoPais());
+						}
+						//En Sistema
+						public String todoPais(){
+							String res = “Hay de todos los departamentos”;
+							boolean[] todos = new boolean[20];
+							Iterator<Torneo> iter = this.getListaTorneos().iterator();
+							while (iter.hasNext()){
+								Torneo t = iter.next();
+								todos[t.getClub().getDepartamento()] = true;
+							}
+							boolean hay = true;
+							for (int i = 1; i<= 19 && hay; i++){
+								if (!todos[i]){
+									hay= false;
+								}
+							}
+							if (!hay){
+								res = “No hay de todos los departamentos”;
+							}
+							return res;
+						}
+						//En Torneo
+						public String toString(){
+							return this.getNombre() + “ “ + this.getClub().getDepartamento();}
+						//Al click del boton de CargarCarreras:
+						Torneo cualT = (Torneo)listaTorneos.getSelectedValue();
+						listaCarreras.setListData(cualT.getListaCarreras().toArray());
+						//En Carrera
+						public String toString(){
+							return this.getNombre();
+						}
+						//Al click de boton CargarResultados
+						Carrera cualC = (Carrera)listaCarreras.getSelectedValue();
+						listaResultados.setListData(modelo.darResultados(cualC).toArray());
+						//En Resultado implements Comparable<Resultado>
+						public int compareTo(Resultado unR){
+							return this.getTiempo()-unR.getTiempo();
+						}
+						public String toString(){
+							return this.getNadador().getNombre() + “ ”+ this.getNadador().getClub().getNombre();}
+						// En Sistema
+						public ArrayList<Resultado> darResultados(Carrera unaC){
+							ArrayList<Resultado> lista = new ArrayList<Resultado>();
+							Iterator <Resultado> iter = this.getListaResultados().iterator();
+							while (iter.hasNext()){
+								Resultado r = iter.next();
+								if (r.getResultado().getCarrera().equals(unaC)){
+									lista.add(r);
+								}
+							}
+							Collections.sort(lista);
+							return lista; 
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Parcial DICIEMBRE 2024 NOCTURNO</h4>
+					<h5>Solucion EJ 1</h5>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						public static void proceso() {
+							int[][] valijas = new int[1000][4]; //guarda las enviadas y recibidas bien, regular, mal
+							ArchivoLectura arch = new ArchivoLectura("Subidas.txt");
+							while (arch.hayMasLineas()) {
+								String[] datos = arch.linea().split("#");
+								int asiento = Integer.parseInt(datos[0]);
+								int cantidad = Integer.parseInt(datos[1]);
+								valijas[asiento][0] = cantidad;
+							}
+							arch.cerrar();
+							arch = new ArchivoLectura("Bajadas.txt");
+							while (arch.hayMasLineas()) {
+								String[] datos = arch.linea().split("#");
+								int asiento = Integer.parseInt(datos[0]);
+								int col = 1;
+								if (datos[1].equals("R")) {
+									col = 2;
+								} else {
+									if (datos[1].equals("M")) {
+										col = 3;
+									}
+								}
+								valijas[asiento][col]++;
+							}
+							arch.cerrar();
+							ArchivoGrabacion result = new ArchivoGrabacion("PROBLEMAS.txt");
+							for (int i = 1; i <= 999; i++) {
+								if (valijas[i][0] > 0) { // solo para los que enviaron
+									int llegaron = valijas[i][1] + valijas[i][2] + valijas[i][3]);
+									if ((valijas[i][0] > llegaron) || valijas[i][2] != 0 || valijas[i][3] != 0) { //con problemas
+										String numero = "";
+										if (i < 10) {
+											numero = "00" + i;
+										} else {
+											if (i < 100) {
+												numero = "0" + i;
+											} else {
+												numero = "" + i;
+											}
+										}
+										result.grabarLinea(numero + "#" + valijas[i][0] + "#" +
+												valijas[i][1] + "#" + valijas[i][2] + "#" + valijas[i][3] + "#" + (valijas[i][0] - llegaron);
+									}
+								}
+							}
+							result.cerrar();
+						}
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/logo-universidad-ort-uruguay.svg" width="100px" height="50px"
+						style="background: 	none; border: none; box-shadow: none; position: fixed; top: 0; right: 0;">
+					<h4>Parcial DICIEMBRE 2024 NOCTURNO</h4>
+					<h5>Solucion EJ 2</h5>
+					<pre><code code class="hljs java" data-trim data-noescape>
+						// Constructor:
+						public VentanaConsulta(Sistema unSistema) {
+							modelo = unSistema;
+							initComponents();
+							Collections.sort(modelo.getListaParques());
+							listaParques.setListData(modelo.getListaParques().toArray());
+						}
+
+						// En clase Parque:
+						public class Parque implements Comparable<Parque> {
+							public int compareTo(Parque unParque) {
+								return this.getNombre().compareTo(unParque.getNombre());
+							}
+
+							public String toString() {
+								return this.getNombre();
+							}
+
+							// Evento: seleccion en listaParques:
+							Parque parque = (Parque) listaParques.getSelectedValue();
+						etiquetaPromedio.setText(""+modelo.promedioPuntos(parque));
+						listaRutas.setListData(parque.getListaRutas().
+
+							toArray());
+
+							// En clase Ruta
+							public String toString() {
+								return this.getCodigo() + " " + this.getDescripcion();
+							}
+
+							// Evento: seleccion en listaRutas:
+							Ruta ruta = (Ruta) listaRutas.getSelectedValue();
+						listaPersonas.setListData(modelo.personasRuta(ruta).
+
+							toArray());
+
+							// En clase Persona: 
+							public String toString() {
+								String menor = "";
+								if (this.getEsMenor()) {
+									menor = " (es menor)";
+								}
+								return this.getNombre() + " C.I. " + this.getCedula() + menor;
+							}
+
+							// En Sistema: 
+							public float promedioPuntos(Parque parque) {
+								float suma = 0;
+								int cantidad = 0;
+								for (Visita visita : this.getListaVisitas()) {
+									if (visita.getParque().equals(parque)) {
+										suma += visita.getPuntaje();
+										cantidad++;
+									}
+								}
+								return suma / cantidad;
+							}
+
+							public ArrayList<Persona> personasRuta(Ruta ruta) {
+								ArrayList<Persona> listaP = new ArrayList<>();
+								for (Visita visita : this.getListaVisitas()) {
+									if (visita.getListaRutas().contains(ruta)) {
+										if (!listaP.contains(visita.getPersona()) {
+											listaP.add(visita.getPersona());
+										}
+									}
+								}
+								return listaP;
+							}
+					</code></pre>
+				</section>
 			</section>
 
 			<!-- FIN -->
